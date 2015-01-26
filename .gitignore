@@ -1,4 +1,6 @@
 
 # Ignore the Craft App
 craft/app
+craft/config/db.php
+node_modules
 

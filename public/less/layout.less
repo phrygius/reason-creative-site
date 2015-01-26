@@ -1,0 +1,74 @@
+
+@import 'vars';
+
+body {
+	color: #444;
+	font-family: serif;
+	font-size: 16px;
+	line-height: 1.3;
+}
+@media(min-width: 728px) {
+	body {
+		font-size: 18px;
+	}
+}
+@media(min-width: 1900px) {
+	body {
+		font-size: 20px;
+	}
+}
+
+p, ul, ol {
+	margin-bottom: 1rem;
+}
+
+header, footer, main {
+	position: relative;
+}
+.section-dark {
+	color: #fff;
+}
+.main-content {
+	background: #fff;
+}
+.content-container {
+	max-width: 1400px;
+	margin-right: auto;
+}
+.outside-container{
+	padding: 10px;
+	position: relative;
+}
+@media(min-width: 728px) {
+	.outside-container {
+		padding: 50px 100px;
+	}
+}
+strong, .strong {
+	font-family: @fontStack_bold;
+}
+h1 {
+	font-size: 120px;
+	line-height: 1.1;
+}
+h1, h2, h3 {
+	font-family: @fontStack_normal;
+	font-weight: normal;
+	text-transform: uppercase;
+	letter-spacing: -0.02em;
+}
+.header-logo {
+	position: absolute;
+	top: 15%;
+	left: 10px;
+	width: 90%;
+}
+@media(min-width: 728px) {
+	.header-logo {
+		width: 40%;
+		top: 45%;
+		left: 90px;
+		padding-right: 40px;
+//		border-right: 5px solid #fff;
+	}
+}
