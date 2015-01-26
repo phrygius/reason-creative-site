@@ -4,3 +4,5 @@ craft/app
 craft/config/db.php
 node_modules
 
+
+public/css/style.css
