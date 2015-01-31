@@ -6,3 +6,5 @@ node_modules
 
 
 public/css/style.css
+public/img/portfolio/
+craft/config/license.key

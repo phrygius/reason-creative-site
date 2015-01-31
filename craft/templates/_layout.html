@@ -8,6 +8,18 @@
  # See Twig’s Template Inheritance documentation for more details:
  # http://twig.sensiolabs.org/doc/templates.html#template-inheritance
  #}
+ {#
+  # FOR FUTURE USE IF NECESSARY
+  
+	{{ 
+		craft.inlin.er('/img/gradient-text.svg') 
+		| replace('TEXT', 'About Me') 
+		| replace('NUMBER', 'About')
+		| replace('RECT_HEIGHT', SVG_RECT_HEIGHT)
+		| replace('HEIGHT', SVG_TEXT_HEIGHT)
+		| raw 
+	}}
+ #}
 
 <!DOCTYPE html>
 <html lang="en-US">
@@ -20,16 +32,16 @@
 	{% includeCssFile "/css/style.css" %}
 	{{ getHeadHtml() }}
 </head>
-{% set theme = random(4) %}
+{% set theme = random(2) %}
 <body class="theme{{ theme }}">
 	<div class="content-container">
-		<header class="section-dark" id="header">
-			{% set svg = random(['1', '2']) %}
-			{% if svg == '1' %}
-				{{ craft.inlin.er('/img/background-1.svg') | raw }}
-			{% elseif svg == '2' %}
-				{{ craft.inlin.er('/img/background-2.svg') | raw }}
-			{% endif %}
+		<header class="dark-container" id="header">
+			{% set svg = random(['1', '2', '3']) %}
+			{% set file = '/img/background-NUMBER.svg' %}
+			{{ 
+				craft.inlin.er(file | replace('NUMBER', svg))
+				| raw 
+			}}
 			{% block header %}
 				<div class="outside-container">
 					<h1>Header</h1>
@@ -42,8 +54,8 @@
 				<p>See Twig’s <a href="http://twig.sensiolabs.org/doc/templates.html#template-inheritance">Template Inheritance</a> documentation for an explanation.</p>
 			{% endblock %}
 		</main>
-		<footer class="section-dark" id="footer">
-			<div class="outside-container">
+		<footer class="dark-container" id="footer">
+			<div class="outside-container vertical-container">
 				&copy; {{ now.year }} {{ siteName }}.
 			</div>
 		</footer>

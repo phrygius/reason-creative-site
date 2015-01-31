@@ -3,7 +3,7 @@
 .themer(@color_1, @color_2, @color_3) {
 
 	background: darken(@color_1, 10);
-	color: darken(@color_1, 10);
+	color: darken(@color_1, 5);
 
 	::selection {
 		background: @color_1;
@@ -23,20 +23,58 @@
 	.svg-color-2 {
 		fill: @color_2;
 	}
-	.svg-color-highlight {
+	.svg-color-3 {
 		fill: @color_3;
 	}
+	.svg-stroke-1 {
+		stroke: @color_1;
+	}
+	.svg-stroke-2 {
+		stroke: @color_2;
+	}
+	.svg-stroke-3 {
+		stroke: @color_3;
+	}
+	.svg-text-stop-1 {
+		stop-color: @color_3;
+	}
+	.svg-text-stop-2 {
+		stop-color: @color_2;
+	}
 
-	.section-dark {
+	button, .button {
+		background: @color_2;
+		&:hover {
+			background: saturate(lighten(@color_2, 5), 20);
+		}
+
+		&.primary {	
+			background: @color_3;
+			&:hover {
+				background: saturate(lighten(@color_3, 5), 20);
+			}
+		}
+	}
+
+	.dark-container {
 		background: @color_1;
+		color: #fff;
 	}
 
 	header#header {
 		border-color: fade(lighten(@color_1, 20), 30%);
 	}
 
-	h1, h2, h3 {
+	.index-page h1 {
+		background-color: darken(@color_1, 10);
+	}
+
+	h1, h2 {
 		color: @color_3;
+	}
+
+	hr {
+		.diagonal-gradient-mixin(@color1: @color_3; @color2: @color_2);
 	}
 
 	@media(min-width: 728px) {
@@ -44,37 +82,29 @@
 			border-right-color: @color_3;
 		}
 	}
+
+	blockquote {
+		border-left: 5px solid @color_3;
+		padding-left: 25px;
+	}
+
+	li.tag {
+		border-color: @color_2;
+		color: @color_2;
+	}
 }
 
 /** Purple, Magenta, Cyan **/
 body.theme0 {
 	.themer(
-		@color_1: #4E4463;
+		@color_1: #464054;
 		@color_2: #26BBE0;
-		@color_3: #E32B47
-	);
-}
-
-/** Orange, Maroon, Grey **/
-body.theme1 {
-	.themer(
-		@color_1: #552e2d;
-		@color_2: #888;
-		@color_3: #ff5a08
-	);
-}
-
-/** Greens & Gold **/
-body.theme2 {
-	.themer(
-		@color_1: #1E3D39;
-		@color_2: #197054;
-		@color_3: #DE9B33
+		@color_3: #E32B47;
 	);
 }
 
 /** Purples & Peach **/
-body.theme3 {
+body.theme1 {
 	.themer(
 		@color_1: #2E242D;
 		@color_2: #525566;
@@ -83,10 +113,10 @@ body.theme3 {
 }
 
 /** Dark Greens **/
-body.theme4 {
+body.theme2 {
 	.themer(
-		@color_1: #384948;
-		@color_2: #1C282C;
+		@color_1: #1C282C;
+		@color_2: #384948;
 		@color_3: #56C5A5;
 	);
 }

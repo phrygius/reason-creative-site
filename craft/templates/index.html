@@ -20,24 +20,62 @@
 {% extends "_layout" %}
 
 {% block header %}
-	<div class="header-logo" itemscope itemtype="http://schema.org/LocalBusiness">
+	<div id="header-logo" itemscope itemtype="http://schema.org/LocalBusiness">
 		<a class="company-name" itemprop="url" href="http://reasoncreative.com">
 			{{ craft.inlin.er('/img/logo.svg') | raw }}
 		</a>
 		<meta itemprop="description" value="Reason Creative provides web and print design services in Brooklyn, NY." />
 	</div>
+	<button class="primary goto" id="goto-one" data-section="portfolio">Check it out!</button>
 {% endblock %}
 
 {% block content %}
-	<section class="outside-container" id="page-content">
-		{{ entry.body }}
-	</section>
-	<section class="outside-container" id="portfolio">
+{% set SVG_TEXT_HEIGHT = '55px' %}
+{% set SVG_RECT_HEIGHT = '5px' %}
+<div class="index-page">
+	<h1 class="outside-container">Web/Print Design in Brooklyn, NY</h1>
+	<div class="outside-container vertical-container">
 		<h2>Portfolio</h2>
+		<hr class="post-heading" />
+	</div>
+	<section class="outside-container" id="portfolio">
 		<div>
-			{% for entry in craft.entries.section('portfolio').find() %}
-				<div class="project"><h3>{{ entry.title }}</h3></div>
+			{% for entry in craft.entries.section('portfolio').order('orderBy').limit(15) %}
+				<a href="{{entry.url}}" class="project-promo vertical-container">
+					<div class="info-container">
+						<div class="name-container">
+							<h3>{{ entry.title }}</h3>
+							<div class="project-timeline">{{ entry.projectTimeline }}</div>
+						</div>
+						<p>{{ entry.description }}</p>
+						<ul class="tag-container">
+							{% for tag in entry.tags %}
+								<li class="tag">{{ tag.name }}</li>
+							{% endfor %}
+						</ul>
+						<p class="button-container"><button>View Project</button></p>
+					</div>
+					<div class="image-container">
+						<img src="{{ entry.promoImage.first().getUrl('previewMedium') }}" width="entry.promoImage.first().getWidth('previewMedium')" height="entry.promoImage.first().getHeight('previewMedium')" alt="{{ entry.title }}" />
+					</div>
+				</a>
 			{% endfor %}
 		</div>
 	</section>
+	<div class="outside-container vertical-container">
+		<h2>About Me</h2>
+		<hr class="post-heading" />
+		<div class="flex-container">
+			<div class="body-container fill">{{ entry.body }}</div>
+			<div class="social-container">
+				<p>
+					<a href="http://jasongrafinger.com" class="button small social">My Blog</a>
+				</p>
+				<p>
+					<a href="http://instagram.com/jasongrafinger" class="button small social">Instagram</a>
+				</p>
+			</div>
+		</div>
+	</div>
+</div>
 {% endblock %}
