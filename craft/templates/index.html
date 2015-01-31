@@ -34,14 +34,12 @@
 {% set SVG_RECT_HEIGHT = '5px' %}
 <div class="index-page">
 	<h1 class="outside-container">Web/Print Design in Brooklyn, NY</h1>
-	<div class="outside-container vertical-container">
+	<section class="outside-container vertical-container" id="portfolio">
 		<h2>Portfolio</h2>
 		<hr class="post-heading" />
-	</div>
-	<section class="outside-container" id="portfolio">
 		<div>
 			{% for entry in craft.entries.section('portfolio').order('orderBy').limit(15) %}
-				<a href="{{entry.url}}" class="project-promo vertical-container">
+				<div class="project-promo">
 					<div class="info-container">
 						<div class="name-container">
 							<h3>{{ entry.title }}</h3>
@@ -53,12 +51,12 @@
 								<li class="tag">{{ tag.name }}</li>
 							{% endfor %}
 						</ul>
-						<p class="button-container"><button>View Project</button></p>
+						<p class="button-container"><a href="{{entry.url}}" class="button">View Project</a></p>
 					</div>
-					<div class="image-container">
+					<a href="{{entry.url}}" class="image-container">
 						<img src="{{ entry.promoImage.first().getUrl('previewMedium') }}" width="entry.promoImage.first().getWidth('previewMedium')" height="entry.promoImage.first().getHeight('previewMedium')" alt="{{ entry.title }}" />
-					</div>
-				</a>
+					</a>
+				</div>
 			{% endfor %}
 		</div>
 	</section>

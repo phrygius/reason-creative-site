@@ -183,12 +183,12 @@ button, .button {
 }
 
 /** Homepage projects **/
-a.project-promo {
+.project-promo {
 	display: flex;
 	width: 100%;
 	flex-direction: column;
 
-	padding-bottom: 25px;
+	padding: 25px 0;
 	margin-bottom: 25px;
 	border-bottom: 1px solid #333;
 
@@ -204,9 +204,8 @@ a.project-promo {
 	}
 }
 @media(min-width: 728px) {
-	a.project-promo {
+	.project-promo {
 		flex-direction: row;
-		padding-bottom: 0px;
 		margin-bottom: 0px;
 		border-bottom: none;
 
@@ -273,6 +272,9 @@ li.tag {
 
 /** Home Page about section */
 @media(min-width: 728px) {
+	.body-container {
+		margin-right: 25px;
+	}
 	.social-container {
 		width: 40%;
 		text-align: right;
