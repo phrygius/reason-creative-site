@@ -17,6 +17,13 @@
 	.content-container {
 		box-shadow: 0px 0px 32px fade(darken(@color_1, 20), 50%);
 	}
+	/*.main-content {
+		background: desaturate(@color_3, 5%);
+		color: #fff;
+		h1, h2 {
+			color: #fff;
+		}
+	}*/
 	.svg-color-1 {
 		fill: @color_1;
 	}
@@ -74,7 +81,10 @@
 	}
 
 	hr {
-		.diagonal-gradient-mixin(@color1: @color_3; @color2: @color_2);
+		.diagonal-gradient-mixin(
+			@color1: @color_3; 
+			@color2: @color_2
+		);
 	}
 
 	@media(min-width: 728px) {

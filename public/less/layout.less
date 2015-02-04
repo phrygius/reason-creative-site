@@ -1,6 +1,10 @@
 
 @import 'vars';
 
+body, html {
+	max-width: 100vw;
+	overflow-x: hidden;
+}
 body {
 	color: #555;
 	font-family: @fontStack_serif_normal;
@@ -34,21 +38,46 @@ header, footer, main {
 header#header {
 	font-size: 0;
 	line-height: 0;
+	position: relative;
 	/*border-bottom: 8px solid black;*/
 
 	nav {
 		font-size: 16px;
 		line-height: 1;
 	}
+
+	& > svg {
+		width: 150vw;
+	}
+
+	#goto-one {
+		display: none;
+	}
 }
+@media(min-width: 728px) {
+	header#header {
+		&> svg {
+			width: 100vw;
+			max-width: 1400px;
+		}
+
+		#goto-one {
+			display: block;
+		}
+	}
+}
+
 footer {
+	text-align: center;
 	font-family: @fontStack_normal;
+	font-size: 14px;
+	text-transform: uppercase;
 }
 .section-dark {
 	color: #fff;
 }
 .main-content {
-	background: #fff;
+	background: #e8e9ea;
 }
 .content-container {
 	max-width: 1400px;
@@ -225,6 +254,8 @@ button, .button {
 			align-items: baseline;
 			width: 100%;
 			.project-timeline {
+				font-size: 12px;
+				text-transform: uppercase;
 				flex: 1 1 auto;
 				text-align: right;
 				font-family: @fontStack_normal;
