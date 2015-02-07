@@ -17,13 +17,13 @@
 	.content-container {
 		box-shadow: 0px 0px 32px fade(darken(@color_1, 20), 50%);
 	}
-	/*.main-content {
+	.main-content {
 		background: desaturate(@color_3, 5%);
 		color: #fff;
 		h1, h2 {
 			color: #fff;
 		}
-	}*/
+	}
 	.svg-color-1 {
 		fill: @color_1;
 	}
@@ -106,10 +106,15 @@
 
 /** Purple, Magenta, Cyan **/
 body.theme0 {
+	// .themer(
+	// 	@color_1: #464054;
+	// 	@color_2: #26BBE0;
+	// 	@color_3: #E32B47;
+	// );
 	.themer(
 		@color_1: #464054;
-		@color_2: #26BBE0;
-		@color_3: #E32B47;
+		@color_3: #574C70;
+		@color_2: #E32B47;
 	);
 }
 
@@ -128,6 +133,20 @@ body.theme2 {
 		@color_1: #1C282C;
 		@color_2: #384948;
 		@color_3: #56C5A5;
+	);
+}
+
+/** Yellow & Tan **/
+body.theme3 {
+	// .themer(
+	// 	@color_1: #857F5D;
+	// 	@color_2: #C7C3A5;
+	// 	@color_3: #DBDA56;
+	// );
+	.themer(
+		@color_1: #857F5D;
+		@color_2: #ADA888;
+		@color_3: #D5C844;
 	);
 }
 

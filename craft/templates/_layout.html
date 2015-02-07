@@ -28,15 +28,17 @@
 	<title>{% if title is defined %}{{ title }} - {% endif %}{{ siteName }}</title>
 	<link rel="home" href="{{ siteUrl }}" />
 	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+	<script src="//use.typekit.net/gvz2nzd.js"></script>
+	<script>try{Typekit.load();}catch(e){}</script>
 
 	{% includeCssFile "/css/style.css" %}
 	{{ getHeadHtml() }}
 </head>
-{% set theme = random(2) %}
+{% set theme = random(3) %}
 <body class="theme{{ theme }}">
 	<div class="content-container">
 		<header class="dark-container" id="header">
-			{% set svg = random(['1', '2', '3']) %}
+			{% set svg = random(['1', '2', '3', '4']) %}
 			{% set file = '/img/background-NUMBER.svg' %}
 			{{ 
 				craft.inlin.er(file | replace('NUMBER', svg))
