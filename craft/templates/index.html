@@ -21,7 +21,7 @@
 
 {% block header %}
 	<div id="header-logo" itemscope itemtype="http://schema.org/LocalBusiness">
-		<a class="company-name" itemprop="url" href="http://reasoncreative.com">
+		<a class="company-name" itemprop="url" href="{{ siteUrl }}">
 			{{ craft.inlin.er('/img/logo.svg') | raw }}
 		</a>
 		<meta itemprop="description" value="Reason Creative provides web and print design services in Brooklyn, NY." />
@@ -60,12 +60,13 @@
 			{% endfor %}
 		</div>
 	</section>
-	<div class="outside-container vertical-container">
+	<div class="outside-container vertical-container" itemscope itemtype="http://schema.org/Person">
+		<meta itemprop="name" value="Jason Grafinger" />
 		<h2>About Me</h2>
 		<hr class="post-heading" />
 		<div class="flex-container middle">
 			<div class="me-image-container top">
-				<img src="/img/me.png" alt="me" />
+				<img itemprop="image" src="/img/me.png" alt="me" />
 			</div>
 			<div class="body-container fill">{{ entry.body }}</div>
 			<div class="social-container ">

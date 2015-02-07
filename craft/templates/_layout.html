@@ -35,15 +35,17 @@
 	{{ getHeadHtml() }}
 </head>
 {% set theme = random(3) %}
-<body class="theme{{ theme }}">
+<body class="theme{{ theme }} {% block bodyClass %}home{% endblock %}">
 	<div class="content-container">
 		<header class="dark-container" id="header">
+			<div class="svg-container">
 			{% set svg = random(['1', '2', '3', '4']) %}
 			{% set file = '/img/background-NUMBER.svg' %}
 			{{ 
 				craft.inlin.er(file | replace('NUMBER', svg))
 				| raw 
 			}}
+			</div>
 			{% block header %}
 				<div class="outside-container">
 					<h1>Header</h1>
@@ -58,7 +60,7 @@
 		</main>
 		<footer class="dark-container" id="footer">
 			<div class="outside-container vertical-container">
-				&copy; {{ now.year }} {{ siteName }}.
+				&copy; {{ now.year }} {{ siteName }}. <a class="text-link" href="#" onclick="document.location.reload(); return false;">Refresh for a good time</a>.
 			</div>
 		</footer>
 	</div>

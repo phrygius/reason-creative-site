@@ -1,6 +1,11 @@
 
 @import 'vars';
 
+/*********************************
+ * 
+ * Document Setup
+ * 
+ *********************************/
 body, html {
 	max-width: 100vw;
 	overflow-x: hidden;
@@ -24,6 +29,12 @@ body {
 	}
 }
 
+
+/*********************************
+ * 
+ * Basic Elements
+ * 
+ *********************************/
 p, ul, ol {
 	margin-bottom: 1rem;
 }
@@ -36,6 +47,51 @@ img {
 header, footer, main {
 	position: relative;
 }
+strong, .strong {
+	font-family: @fontStack_bold;
+	font-weight: 700;
+}
+h1 {
+	font-size: 120px;
+	line-height: 1.1;
+}
+h1 {
+	font-family: @fontStack_normal;
+	font-weight: 400;
+	text-transform: uppercase;
+}
+h2 {
+	text-transform: uppercase;
+	font-family: @fontStack_bold;
+	font-weight: 700;
+	font-size: 50px;
+}
+h3 {
+	font-family: @fontStack_normal;
+	font-weight: 400;
+	letter-spacing: 0.05em;
+}
+hr {
+	margin: 0 0 30px;
+	padding: 0;
+	background: #333;
+	height: 5px;
+	border: none;
+}
+a {
+	text-decoration: none;
+	color: inherit;
+	&.text-link {
+		border-bottom: 1px solid #333;
+	}
+}
+
+
+/*********************************
+ * 
+ * Header/SVG area
+ * 
+ *********************************/
 header#header {
 	font-size: 0;
 	line-height: 0;
@@ -47,17 +103,26 @@ header#header {
 		line-height: 1;
 	}
 
-	& > svg {
+	.svg-container {
 		width: 150vw;
+		overflow: hidden;
 	}
 
 	#goto-one {
 		display: none;
 	}
 }
+body.portfolio-entry header#header {
+	.svg-container {
+		height: 200px;
+	}
+	#header-logo {
+		top: 25px;
+	}
+}
 @media(min-width: 728px) {
 	header#header {
-		&> svg {
+		.svg-container {
 			width: 100vw;
 			max-width: 1400px;
 		}
@@ -68,11 +133,18 @@ header#header {
 	}
 }
 
+
+/*********************************
+ * 
+ * Theme areas
+ * 
+ *********************************/
 footer {
 	text-align: center;
 	font-family: @fontStack_normal;
 	font-weight: 400;
 	font-size: 14px;
+	line-height: 1.5;
 	text-transform: uppercase;
 }
 .section-dark {
@@ -104,49 +176,6 @@ footer {
 		padding-top: 50px;
 		padding-bottom: 50px;
 	}
-}
-strong, .strong {
-	font-family: @fontStack_bold;
-	font-weight: 700;
-}
-h1 {
-	font-size: 120px;
-	line-height: 1.1;
-}
-.index-page h1 {
-	font-size: inherit;
-	background: #333;
-	color: #888;
-	padding-top: 10px;
-	padding-bottom: 10px;
-	line-height: 1;
-}
-h1 {
-	font-family: @fontStack_normal;
-	font-weight: 400;
-	text-transform: uppercase;
-}
-h2 {
-	text-transform: uppercase;
-	font-family: @fontStack_bold;
-	font-weight: 700;
-	font-size: 50px;
-}
-h3 {
-	font-family: @fontStack_normal;
-	font-weight: 400;
-	letter-spacing: 0.05em;
-}
-hr {
-	margin: 0 0 30px;
-	padding: 0;
-	background: #333;
-	height: 5px;
-	border: none;
-}
-a {
-	text-decoration: none;
-	color: inherit;
 }
 
 #header-logo {
@@ -223,6 +252,17 @@ button, .button {
 	}
 }
 
+/*
+Home Page
+*/
+.index-page h1 {
+	font-size: inherit;
+	background: #333;
+	color: #888;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	line-height: 1;
+}
 .me-image-container {
 	max-width: 400px;
 	min-width: 300px;
@@ -233,7 +273,10 @@ button, .button {
 	}
 }
 
-/** Homepage projects **/
+/** Project Styling **/
+ul.tag-container  {
+	display: block;
+}
 .project-promo {
 	display: flex;
 	width: 100%;
@@ -253,6 +296,14 @@ button, .button {
 	.info-container {
 		order: 2;
 	}
+}
+.project-timeline {
+	font-size: 12px;
+	text-transform: uppercase;
+	flex: 1 1 auto;
+	font-family: @fontStack_normal;
+	font-weight: 400;
+	letter-spacing: 0.1em;
 }
 @media(min-width: 728px) {
 	.project-promo {
@@ -276,18 +327,8 @@ button, .button {
 			align-items: center;
 			width: 100%;
 			.project-timeline {
-				font-size: 12px;
-				text-transform: uppercase;
-				flex: 1 1 auto;
 				text-align: right;
-				font-family: @fontStack_normal;
-				font-weight: 400;
-				letter-spacing: 0.1em;
 			}
-		}
-
-		ul.tag-container  {
-			display: block;
 		}
 
 		&:nth-child(even) {
@@ -335,4 +376,56 @@ li.tag {
 		text-align: right;
 	}
 }
+
+
+/** Porftolio Pages */
+header.top-heading {
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 100;
+	width: 100%;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	font-size: 25px;
+	line-height: 1;
+	font-family: @fontStack_bold;
+	font-weight: 700;
+	background: #333;
+	text-transform: uppercase;
+	letter-spacing: 0.1em;
+
+	a {
+		color: #fff;
+	}
+}
+article.portfolio {
+	padding-top: 50px;
+	padding-bottom: 50px;
+	border-top: 10px solid #333;
+	h1 {
+		padding-top: 25px;
+		font-size: 30px;
+		line-height: 1.4;
+	}
+}
+@media(min-width: 728px) {
+	article.portfolio {
+		display: flex;
+		flex-direction: row;
+		align-items: flex-start;
+
+		.entry-info {
+			width: 30%;
+			margin-right: 25px;
+		}
+		.entry-body {
+			width: 70%;
+		}
+		h1 {
+			padding-top: 0;
+		}
+	}
+}
+
 
