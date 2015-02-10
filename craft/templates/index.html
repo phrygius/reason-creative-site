@@ -54,7 +54,7 @@
 						<p class="button-container"><a href="{{entry.url}}" class="button">View Project</a></p>
 					</div>
 					<a href="{{entry.url}}" class="image-container">
-						<img src="{{ entry.promoImage.first().getUrl('previewMedium') }}" width="entry.promoImage.first().getWidth('previewMedium')" height="entry.promoImage.first().getHeight('previewMedium')" alt="{{ entry.title }}" />
+						<img src="{{ entry.promoImage.first().getUrl('previewMedium') }}" width="{{ entry.promoImage.first().getWidth('previewMedium') }}" height="{{ entry.promoImage.first().getHeight('previewMedium') }}" alt="{{ entry.title }}" />
 					</a>
 				</div>
 			{% endfor %}

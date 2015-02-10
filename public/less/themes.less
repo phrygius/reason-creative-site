@@ -19,9 +19,17 @@
 	}
 	.main-content {
 		background: desaturate(@color_3, 5%);
-		color: #fff;
+		color: contrast(
+			desaturate(@color_3, 5%), 
+			darken(@color_1, 20), 
+			#fff
+		);
 		h1, h2 {
-			color: #fff;
+			color: contrast(
+				desaturate(@color_3, 5%), 
+				darken(@color_1, 20), 
+				#fff
+			);
 		}
 	}
 	.svg-color-1 {
@@ -105,6 +113,9 @@
 	a.text-link {
 		border-color: @color_2;
 	}
+	article.portfolio .body {
+		border-color: contrast(@color_3, @color_1, @color_2);
+	}
 }
 
 /** Purple, Magenta, Cyan **/
@@ -150,6 +161,15 @@ body.theme3 {
 		@color_1: #857F5D;
 		@color_2: #ADA888;
 		@color_3: #D5C844;
+	);
+}
+
+/** Really close to purple/peach one at #1 spot */
+body.theme4 {
+	.themer(
+		@color_1: #444D4F;
+		@color_2: #566361;
+		@color_3: #FF5D4E;
 	);
 }
 

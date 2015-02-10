@@ -29,16 +29,21 @@
 					<li class="tag">{{ tag.name }}</li>
 				{% endfor %}
 			</ul>
+			<div class="description">
+				{{ entry.description }}
+			</div>
+			{% if entry.body %}
+				<div class="body">
+					{{ entry.body }}
+				</div>
+			{% endif %}
 		</div>
 		<div class="entry-body">
-			{{ entry.description }}
-			<img src="{{ entry.images.first().getUrl() }}" alt="" />
-			{% for image in entry.images %}
-				{% if not loop.first %}
-					<img src="{{ image.getUrl() }}" alt="" />
-				{% endif %}
-			{% endfor %}
-			{{ entry.body }}
+			<div class="images">
+				{% for image in entry.images %}
+					<img src="{{ image.getUrl() }}" alt="{{ image.title }}" />
+				{% endfor %}
+			</div>
 		</div>
 	</article>
 {% endblock %}

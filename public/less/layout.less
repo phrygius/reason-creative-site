@@ -85,6 +85,34 @@ a {
 		border-bottom: 1px solid #333;
 	}
 }
+button, .button {
+	display: inline-block;
+	text-align: center;
+	padding: 25px 30px;
+	min-width: 200px;
+	background: #333;
+	color: #fff;
+	text-transform: uppercase;
+	font-family: @fontStack_bold;
+	font-weight: 700;
+	font-size: 20px;
+	letter-spacing: 0px;
+	border: none;
+	outline: none;
+	cursor: pointer;
+	will-change: background;
+	transition: background 100ms ease-out;
+
+	&:hover {
+		background: #444;
+		box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+	}
+
+	&.small {
+		padding: 10px 12px;
+		font-size: 80%;
+	}
+}
 
 
 /*********************************
@@ -176,63 +204,6 @@ footer {
 		padding-top: 50px;
 		padding-bottom: 50px;
 	}
-}
-
-#header-logo {
-	position: absolute;
-	top: 15%;
-	left: 10px;
-	width: 90%;
-}
-@media(min-width: 728px) {
-	#header-logo {
-		width: 40%;
-		top: 75%;
-		left: 90px;
-		padding-right: 40px;
-//		border-right: 5px solid #fff;
-	}
-}
-#goto-one {
-	position: absolute;
-	right: 100px;
-	bottom: 60px;
-}
-
-button, .button {
-	display: inline-block;
-	text-align: center;
-	padding: 25px 30px;
-	min-width: 200px;
-	background: #333;
-	color: #fff;
-	text-transform: uppercase;
-	font-family: @fontStack_bold;
-	font-weight: 700;
-	font-size: 20px;
-	letter-spacing: 0px;
-	border: none;
-	outline: none;
-	cursor: pointer;
-	will-change: background;
-	transition: background 100ms ease-out;
-
-	&:hover {
-		background: #444;
-		box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
-	}
-
-	&.small {
-		padding: 10px 12px;
-		font-size: 80%;
-	}
-}
-
-.svg-fill-gradient {
-	fill: url('#SVG_text_gradient_pattern');
-}
-
-@media(min-width: 728px) {
 	.flex-container {
 		display: flex;
 		flex-direction: row;
@@ -252,9 +223,35 @@ button, .button {
 	}
 }
 
-/*
-Home Page
-*/
+#header-logo {
+	position: absolute;
+	top: 15%;
+	left: 10px;
+	width: 90%;
+}
+@media(min-width: 728px) {
+	#header-logo {
+		width: 40%;
+		top: 75%;
+		left: 90px;
+		padding-right: 40px;
+	}
+}
+#goto-one {
+	position: absolute;
+	right: 100px;
+	bottom: 60px;
+}
+.svg-fill-gradient {
+	fill: url('#SVG_text_gradient_pattern');
+}
+
+
+/*********************************
+ * 
+ * Home Page
+ * 
+ *********************************/
 .index-page h1 {
 	font-size: inherit;
 	background: #333;
@@ -262,15 +259,6 @@ Home Page
 	padding-top: 10px;
 	padding-bottom: 10px;
 	line-height: 1;
-}
-.me-image-container {
-	max-width: 400px;
-	min-width: 300px;
-	margin-right: 25px;
-	img {
-		width: 100%;
-		height: auto;
-	}
 }
 
 /** Project Styling **/
@@ -372,13 +360,28 @@ li.tag {
 		margin-right: 25px;
 	}
 	.social-container {
-		width: 40%;
+		flex: none;
+		width: 200px;
 		text-align: right;
+	}
+}
+.me-image-container {
+	flex: none;
+	max-width: 300px;
+	min-width: 200px;
+	margin-right: 25px;
+	img {
+		width: 100%;
+		height: auto;
 	}
 }
 
 
-/** Porftolio Pages */
+/*********************************
+ * 
+ * Porftolio Pages
+ * 
+ *********************************/
 header.top-heading {
 	position: fixed;
 	top: 0;
@@ -406,7 +409,7 @@ article.portfolio {
 	h1 {
 		padding-top: 25px;
 		font-size: 30px;
-		line-height: 1.4;
+		line-height: 1.2;
 	}
 }
 @media(min-width: 728px) {
@@ -417,10 +420,15 @@ article.portfolio {
 
 		.entry-info {
 			width: 30%;
-			margin-right: 25px;
+			margin-right: 50px;
 		}
 		.entry-body {
 			width: 70%;
+		}
+		.body {
+			border-top: 1px solid #333;
+			padding-top: 25px;
+			margin-top: 25px;
 		}
 		h1 {
 			padding-top: 0;
