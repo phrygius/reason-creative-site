@@ -43,6 +43,25 @@ require(['gsap', 'gsap_css', 'gsap_scrollTo'], function() {
 	});
 });
 
+var footerForm = document.querySelector('footer form');
+if(footerForm) {
+	footerForm.addEventListener('submit', function(evt) {
+		console.log('Form submit');
+		evt.preventDefault();
+		var post = new XMLHTTPRequest();
+		post.open('POST', '/', true);
+		post.onload = function() {
+			console.log('Returned', post);
+			if(post.status >= 200 && post.status < 400) {
+				var data = JSON.parse(post.responseText);
+				console.log(data);
+			}
+		};
+		post.send();
+		return false;
+	});
+}
+
 
 (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
 	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
