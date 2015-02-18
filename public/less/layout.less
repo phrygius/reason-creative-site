@@ -136,16 +136,16 @@ header#header {
 		overflow: hidden;
 	}
 
-	#goto-one {
-		display: none;
+	#rc-logo {
+		max-height: 150px;
 	}
 }
 body.portfolio-entry header#header {
 	.svg-container {
-		height: 200px;
+		height: 225px;
 	}
-	#header-logo {
-		top: 25px;
+	.header-row {
+		top: 0px;
 	}
 }
 @media(min-width: 728px) {
@@ -153,10 +153,7 @@ body.portfolio-entry header#header {
 		.svg-container {
 			width: 100vw;
 			max-width: 1400px;
-		}
-
-		#goto-one {
-			display: block;
+			height: 70vh;
 		}
 	}
 }
@@ -223,27 +220,30 @@ footer {
 	}
 }
 
-#header-logo {
+.header-row {
 	position: absolute;
-	top: 15%;
-	left: 10px;
-	width: 90%;
+	top: 50px;
+	left: 0;
+	width: 100%;
+	padding: 50px 10px;
 }
 @media(min-width: 728px) {
-	#header-logo {
-		width: 40%;
-		top: 75%;
-		left: 90px;
-		padding-right: 40px;
+	.header-row {
+		text-align: center;
+		top: 25%;
+		padding-left: 100px;
+		padding-right: 100px;
+		#header-logo {
+			display: inline-block;
+			width: 40%;
+		}
 	}
-}
-#goto-one {
-	position: absolute;
-	right: 100px;
-	bottom: 60px;
-}
-.svg-fill-gradient {
-	fill: url('#SVG_text_gradient_pattern');
+
+	body.portfolio-entry header#header {
+		.header-row {
+			top: 0px;
+		}
+	}
 }
 
 

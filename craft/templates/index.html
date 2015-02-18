@@ -20,13 +20,14 @@
 {% extends "_layout" %}
 
 {% block header %}
-	<div id="header-logo" itemscope itemtype="http://schema.org/LocalBusiness">
-		<a class="company-name" itemprop="url" href="{{ siteUrl }}">
-			{{ craft.inlin.er('/img/logo.svg') | raw }}
-		</a>
-		<meta itemprop="description" value="Reason Creative provides web and print design services in Brooklyn, NY." />
+	<div class="header-row">
+		<div id="header-logo" itemscope itemtype="http://schema.org/LocalBusiness">
+			<a class="company-name" itemprop="url" href="{{ siteUrl }}">
+				{{ craft.inlin.er('/img/logo.svg') | raw }}
+			</a>
+			<meta itemprop="description" value="Reason Creative provides web and print design services in Brooklyn, NY." />
+		</div>
 	</div>
-	<button class="primary goto" id="goto-one" data-section="portfolio">Check it out!</button>
 {% endblock %}
 
 {% block content %}
@@ -34,7 +35,7 @@
 {% set SVG_RECT_HEIGHT = '5px' %}
 <div class="index-page">
 	<h1 class="outside-container">Web/Print Design in Brooklyn, NY</h1>
-	<section class="outside-container vertical-container" id="portfolio">
+	<section data-section="portfolio" class="outside-container vertical-container" id="portfolio">
 		<h2>Portfolio</h2>
 		<hr class="post-heading" />
 		<div>
