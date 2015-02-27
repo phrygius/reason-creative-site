@@ -188,6 +188,7 @@ footer {
 		}
 		form {
 			max-width: 400px;
+			position: relative;
 		}
 
 		.input-container {
@@ -195,6 +196,27 @@ footer {
 			input, textarea {
 				display: block;
 				width: 100%;
+			}
+		}
+		.hp-input {
+			display: none;
+		}
+		.thanks {
+			display: none;
+			opacity: 0;
+			background: #000;
+			color: #fff;
+			position: absolute;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			will-change: opacity;
+			transition: opacity 250ms ease-out;
+
+			.thanks-text {
+				text-align: center;
+				padding: 50px;
 			}
 		}
 	}
@@ -208,7 +230,7 @@ footer {
 			padding: 0 2.5% 0 0;
 			flex: none;
 			text-transform: uppercase;
-			text-align: right;
+			text-align: center;
 		}
 		.footer-form {
 			width: 47.5%;
@@ -342,7 +364,6 @@ ul.tag-container  {
 @media(min-width: 728px) {
 	.project-promo {
 		flex-direction: row;
-		margin-bottom: 0px;
 		border-bottom: none;
 
 		.image-container {
@@ -453,6 +474,8 @@ article.portfolio {
 	padding-bottom: 50px;
 	border-top: 10px solid #333;
 	h1 {
+		font-family: @fontStack_bold;
+		font-weight: 700;
 		padding-top: 25px;
 		font-size: 30px;
 		line-height: 1.2;

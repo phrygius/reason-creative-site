@@ -35,6 +35,25 @@
 {% set SVG_RECT_HEIGHT = '5px' %}
 <div class="index-page">
 	<h1 class="outside-container">Web/Print Design in Brooklyn, NY</h1>
+	<section data-section="about" class="outside-container vertical-container" itemscope itemtype="http://schema.org/Person">
+		<meta itemprop="name" value="Jason Grafinger" />
+		<h2>About Me</h2>
+		<hr class="post-heading" />
+		<div class="flex-container middle">
+			<div class="me-image-container top">
+				<img itemprop="image" src="/img/me.png" alt="me" />
+			</div>
+			<div class="body-container fill">{{ entry.body }}</div>
+			<div class="social-container ">
+				<p>
+					<a href="http://jasongrafinger.com" class="button small social">My Blog</a>
+				</p>
+				<p>
+					<a href="http://instagram.com/jasongrafinger" class="button small social">Instagram</a>
+				</p>
+			</div>
+		</div>
+	</section>
 	<section data-section="portfolio" class="outside-container vertical-container" id="portfolio">
 		<h2>Portfolio</h2>
 		<hr class="post-heading" />
@@ -61,24 +80,5 @@
 			{% endfor %}
 		</div>
 	</section>
-	<div class="outside-container vertical-container" itemscope itemtype="http://schema.org/Person">
-		<meta itemprop="name" value="Jason Grafinger" />
-		<h2>About Me</h2>
-		<hr class="post-heading" />
-		<div class="flex-container middle">
-			<div class="me-image-container top">
-				<img itemprop="image" src="/img/me.png" alt="me" />
-			</div>
-			<div class="body-container fill">{{ entry.body }}</div>
-			<div class="social-container ">
-				<p>
-					<a href="http://jasongrafinger.com" class="button small social">My Blog</a>
-				</p>
-				<p>
-					<a href="http://instagram.com/jasongrafinger" class="button small social">Instagram</a>
-				</p>
-			</div>
-		</div>
-	</div>
 </div>
 {% endblock %}

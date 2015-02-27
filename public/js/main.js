@@ -48,16 +48,39 @@ if(footerForm) {
 	footerForm.addEventListener('submit', function(evt) {
 		console.log('Form submit');
 		evt.preventDefault();
-		var post = new XMLHTTPRequest();
-		post.open('POST', '/', true);
+
+		var inputs = this.querySelectorAll(
+			'input[type="text"]'
+			+ ', input[type="email"]'
+			+ ', textarea'
+			+ ', button'
+		);
+		for(var i = 0; i < inputs.length; i++) {
+			var input = inputs[i];
+			input.setAttribute('disabled', 'disabled');
+			if(input.nodeName.toLowerCase() == 'button') {
+				input.innerHTML = 'Sending';
+			}
+		}
+
+		var data = new FormData(this);
+		var post = new XMLHttpRequest();
+		console.log('Posting to: ' + this.getAttribute('action'));
+		post.open('POST', this.getAttribute('action'), true);
+		post.setRequestHeader('Content-type', 'multipart/form-data');
+
 		post.onload = function() {
 			console.log('Returned', post);
 			if(post.status >= 200 && post.status < 400) {
-				var data = JSON.parse(post.responseText);
-				console.log(data);
+				var thanks = document.getElementsByClassName('thanks');
+				if(thanks.length > 0) {
+					thanks = thanks[0];
+					thanks.style.display = "block";
+					thanks.style.opacity = "1";
+				}
 			}
 		};
-		post.send();
+		post.send(data);
 		return false;
 	});
 }
