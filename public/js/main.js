@@ -47,6 +47,7 @@ var footerForm = document.querySelector('footer form');
 if(footerForm) {
 	footerForm.addEventListener('submit', function(evt) {
 		console.log('Form submit');
+		ga('send', 'event', 'Contact', 'Form Sent', this.querySelector('input[type="email"]').value);
 		evt.preventDefault();
 
 		var inputs = this.querySelectorAll(
