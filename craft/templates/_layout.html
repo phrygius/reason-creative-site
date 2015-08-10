@@ -34,62 +34,31 @@
 	{% includeCssFile "/css/style.css" %}
 	{{ getHeadHtml() }}
 </head>
-{% set theme = random(3) %}
-<body class="theme{{ theme }} {% block bodyClass %}home{% endblock %}">
-	<div class="content-container">
-		<header class="dark-container" id="header">
-			<div class="svg-container">
-			{% set svg = random(['1', '2', '3', '4']) %}
-			{% set file = '/img/background-NUMBER.svg' %}
-			{{ 
-				craft.inlin.er(file | replace('NUMBER', svg))
-				| raw 
-			}}
+<body class="{% block bodyClass %}home{% endblock %}">
+	<div class="main-container">
+		<div class="background-container">
+			<!-- <div class="background-image"></div> -->
+			<img src="img/nebula.jpg" alt="background" />
+		</div>
+		<div class="svg-container">
+		{% set svg = random(['1', '2', '3', '4']) %}
+		{% set file = '/img/background-NUMBER.svg' %}
+		{{ 
+			craft.inlin.er(file | replace('NUMBER', svg))
+			| raw 
+		}}
+		</div>
+		{% block header %}
+			<div class="outside-container">
+				<h1>Header</h1>
 			</div>
-			{% block header %}
-				<div class="outside-container">
-					<h1>Header</h1>
-				</div>
-			{% endblock %}
-		</header>
+		{% endblock %}
 		<main class="main-content" id="content" role="main">
 			{% block content %}
 				<p>If you see me, you haven’t set your <code>{% verbatim %}{% block content %}…{% endblock %}{% endverbatim %}</code> yet.</p>
 				<p>See Twig’s <a href="http://twig.sensiolabs.org/doc/templates.html#template-inheritance">Template Inheritance</a> documentation for an explanation.</p>
 			{% endblock %}
 		</main>
-		<footer class="dark-container outside-container vertical-container" id="footer">
-			<div class="footer-text">
-				&copy; {{ now.year }} {{ siteName }}.<br />
-				<a class="text-link" href="#" onclick="document.location.reload(); return false;">Refresh for a good time</a>.
-			</div>
-			<div class="footer-form">
-				<h2>Get in touch</h2>
-
-				<form accept-charset="UTF-8" autocomplete="off" enctype="multipart/form-data" method="post" 
-      action="https://phrygius.wufoo.com/forms/m1nawlat121mkak/#public">
-
-				    <div class="input-container">
-					    <input required placeholder="Your name" type="text" name="Field3" id="Field3">
-				    </div>
-				    <div class="input-container">
-				    	<input required placeholder="Email" id="fromEmail" type="email" id="Field4" name="Field4" />
-				    </div>
-				    <div class="input-container">
-					    <textarea required placeholder="Message" rows="10" cols="40" id="Field5"
-name="Field5"></textarea>
-				    </div>
-
-				    <textarea class="hp-input" name="comment" id="comment" rows="1" cols="1"></textarea>
-				    <input type="hidden" id="idstamp" name="idstamp" value="+rfKhQa6fgEIwXx4A9yGfExcsQ8cHoRNxQtbw77oiiw=" />
-				    <button type="submit">Go!</button>
-				    <div class="thanks dark-container">
-				    	<h3 class="thanks-text">Thanks!</h3>
-				    </div>
-				</form>
-			</div>
-		</footer>
 	</div>
-	<script src="//cdnjs.cloudflare.com/ajax/libs/require.js/2.1.16/require.min.js" data-main="js/main.js"></script>
 </body>
 </html>

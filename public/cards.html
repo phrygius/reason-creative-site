@@ -1,0 +1,110 @@
+<!doctype html>
+<html>
+	<head>
+		<title>Test</title>
+		<meta charset="utf-8" />
+		<link rel="stylesheet" href="css/style.css" />
+	</head>
+	<body class="home">
+		<div class="main-container">
+			<div class="background-container" role="presentation">
+				<img src="img/nebula.jpg" alt="background" />
+			</div>
+			<div class="main-content">
+				<div class="logo-container">
+					<img class="logo" src="img/logo.svg" />
+				</div>
+				<h1 class="main-heading">
+					<span class="heading-name">Reason Creative</span>
+					<span class="heading-after">Web and Graphic Design in Brooklyn</span>
+				</h1>
+				<div class="card-container" id="card-container">
+					<div class="card active">
+						<div class="card-text-content">
+							<div class="card-counter">
+								<span class="card-counter-number">1</span>
+								<span class="card-counter-of">of</span>
+								<span class="card-counter-number">4</span>
+							</div>
+							<h2>Card One</h2>
+							<div class="text">
+								<p>Big ideas are rooted in simplicity and good solutions need to get to the heart of the problem at hand. That's why I'm a designer that loves to dive deep and go beyond the surface of any problem at hand. I ask a lot of questions and really try to wrap my head around a thing before moving on to research, design, and finally execution.</p>
+							</div>
+						</div>
+						<div class="card-image-content">
+							<img src="img/nebula.jpg" alt="background" />
+						</div>
+					</div>
+					<div class="card">
+						<div class="card-text-content">
+							<div class="card-counter">
+								<span class="card-counter-number">2</span>
+								<span class="card-counter-of">of</span>
+								<span class="card-counter-number">4</span>
+							</div>
+							<h2>Card Two</h2>
+							<div class="text">
+								<p>Big ideas are rooted in simplicity and good solutions need to get to the heart of the problem at hand. That's why I'm a designer that loves to dive deep and go beyond the surface of any problem at hand. I ask a lot of questions and really try to wrap my head around a thing before moving on to research, design, and finally execution.</p>
+							</div>
+						</div>
+						<div class="card-image-content">
+							<img src="img/nebula.jpg" alt="background" />
+						</div>
+					</div>
+					<div class="card">
+						<div class="card-text-content">
+							<div class="card-counter">
+								<span class="card-counter-number">3</span>
+								<span class="card-counter-of">of</span>
+								<span class="card-counter-number">4</span>
+							</div>
+							<h2>Card Three</h2>
+							<div class="text">
+								<p>Big ideas are rooted in simplicity and good solutions need to get to the heart of the problem at hand. That's why I'm a designer that loves to dive deep and go beyond the surface of any problem at hand. I ask a lot of questions and really try to wrap my head around a thing before moving on to research, design, and finally execution.</p>
+							</div>
+						</div>
+						<div class="card-image-content">
+							<img src="img/nebula.jpg" alt="background" />
+						</div>
+					</div>
+					<div class="card">
+						<div class="card-text-content">
+							<div class="card-counter">
+								<span class="card-counter-number">4</span>
+								<span class="card-counter-of">of</span>
+								<span class="card-counter-number">4</span>
+							</div>
+							<h2>Card Four</h2>
+							<div class="text">
+								<p>Big ideas are rooted in simplicity and good solutions need to get to the heart of the problem at hand. That's why I'm a designer that loves to dive deep and go beyond the surface of any problem at hand. I ask a lot of questions and really try to wrap my head around a thing before moving on to research, design, and finally execution.</p>
+							</div>
+						</div>
+						<div class="card-image-content">
+							<img src="img/nebula.jpg" alt="background" />
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script>
+			var cardsContainer = document.getElementById('card-container');
+			var cards = document.getElementsByClassName('card');
+			var activeCardIndex = 0;
+			cardsContainer.addEventListener('click', function() {
+				var newIndex = activeCardIndex + 1;
+				if(newIndex >= cards.length) {
+					newIndex = 0;
+				}
+
+				for(var i = 0; i < cards.length; i++) {
+					cards[i].classList.remove('spent');
+				}
+
+				cards[activeCardIndex].classList.remove('active');
+				cards[activeCardIndex].classList.add('spent');
+				cards[newIndex].classList.add('active');
+				activeCardIndex = newIndex;
+			});
+		</script>
+	</body>
+</html>
