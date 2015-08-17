@@ -15,7 +15,7 @@
 			<div class="content-container">
 				<div class="content">
 					<div class="logo-container">
-						<img class="logo" src="img/logo-green.svg" />
+						<img class="logo" src="img/logo-green.svg" alt="Reason Creative" />
 					</div>
 					<div class="heading-services-container">
 						<h1 class="main-heading">
@@ -40,8 +40,8 @@
 								<div class="portfolio-preview" style="background-image: url(img/portfolio/musho1.jpg);"></div>
 								<div class="info">
 									<h2>Musho</h2>
-									<p>Lorem ipsum dolor site amet. Lorem ipsum dolor site amet. Lorem ipsum dolor site amet.</p>
-									<p><a href="#">asdfasdf</a></p>
+									<p>M.A.D. needed a portfolio website. The firm has a wonderful collection of past work with many impressive photos of interiors.</p>
+									<p><a class="button" href="#">View Project</a></p>
 								</div>
 							</div>
 						</div>
@@ -50,6 +50,8 @@
 								<div class="portfolio-preview" style="background-image: url(img/portfolio/century-center-top.jpg);"></div>
 								<div class="info">
 									<h2>Century Center</h2>
+									<p>Century Center is a pair of office buildings with retail space and a lot of other amenities in Arlington, VA. I worked with the real estate brokerage Cushman &amp Wakefield to promote the office space.</p>
+									<p><a class="button" href="#">View Project</a></p>
 								</div>
 							</div>
 						</div>
@@ -57,7 +59,9 @@
 							<div class="portfolio-content">
 								<div class="portfolio-preview" style="background-image: url(img/portfolio/alycia-home-page.jpg);"></div>
 								<div class="info">
-									<h2>Alycia Rockey's Portfolio</h2>
+									<h2>Alycia Rockey&lsquo;s Portfolio</h2>
+									<p>Alycia needed a visual identity to tie her personal brand, social channels, and portfolio together.</p>
+									<p><a class="button" href="#">View Project</a></p>
 								</div>
 							</div>
 						</div>
@@ -66,6 +70,8 @@
 								<div class="portfolio-preview" style="background-image: url(img/portfolio/rt-enterprises-cards-top.jpg);"></div>
 								<div class="info">
 									<h2>RT Enterprises</h2>
+									<p> Rebecca Terry needed a logo. RT Enterprises is a consultancy that works with corporate clients so the logo needed to show the professionalism with which Rebecca works.</p>
+									<p><a class="button" href="#">View Project</a></p>
 								</div>
 							</div>
 						</div>
@@ -98,7 +104,11 @@
 						width = window.innerWidth,
 						height = window.innerHeight
 						container = $('.background-container');
-					if(width > 0 && height > 0 && container.length > 0) {
+					if(width > 0 
+						&& height > 0 
+						&& container.length > 0
+						&& !$('body').hasClass('scrolling')
+					) {
 						var leftPercent = Math.floor((left / width) * 100),
 							topPercent = Math.floor((top / height) * 100);
 						container.css({
@@ -109,6 +119,15 @@
 				}, 10);
 				$('body').on('mousemove', onMouseMove);
 			}
+
+			var scrollTimeout = null;
+			var onScroll = debounce(function() {
+				clearTimeout(scrollTimeout);
+				$('body').addClass('scrolling');
+				scrollTimeout = setTimeout(function() {
+					$('body').removeClass('scrolling');
+				}, 1000);
+			}, 50);
 
 			var portfolioContainer = $('.portfolio-container');
 			if(portfolioContainer.length === 1) {

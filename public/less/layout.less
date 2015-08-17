@@ -4,7 +4,8 @@
 @clrBlue: #50E3C2;
 @clrHighlightOnDark: #50E3C2;
 @clrHighlightOnLight: #50E3C2;
-@breakTablet: 600px;
+@breakTablet: 700px;
+@breakNormal: 1050px;
 
 * {
 	box-sizing: border-box;
@@ -45,6 +46,22 @@ img {
 	height: auto;
 }
 
+a.button, .button, button {
+	display: inline-block;
+	color: #fff;
+	background: @clrHighlightOnDark;
+	width: auto;
+	padding: 10px 20px;
+	text-decoration: none;
+	text-transform: uppercase;
+	font-size: 14px;
+	letter-spacing: 0.1em;
+	font-weight: 400;
+	&:hover {
+		background: darken(@clrHighlightOnDark, 10%);
+	}
+}
+
 .main-container {
 	position: relative;
 	min-height: 100vh;
@@ -72,8 +89,8 @@ img {
 	background: @clrDark;
 	position: relative;
 	z-index: 1;
-	margin: 80vh 0 0 0;
-	padding: 0 10vw 100px;
+	margin: 30vh 0 0 0;
+	padding: 0 5vw 100px;
 	transition: all 250ms ease-out;
 	transition-delay: 150ms;
 	transform: translate3d(0, 0, 0);
@@ -96,6 +113,13 @@ img {
 		z-index: 2;
 	}
 }
+@media(min-width: @breakTablet) {
+	.content-container {
+		margin: 80vh 0 0 0;
+		padding-left: 10vw;
+		padding-right: 10vw;
+	}
+}
 .content, .logo-container {
 	max-width: 70rem;
 	margin-left: auto;
@@ -103,11 +127,19 @@ img {
 }
 .logo-container {
 	position: absolute;
-	transform: translate(-10px, -50vh);
+	-webkit-transform: translate(-10px, -25vh);
+	transform: translate(-10px, -25vh);
+}
+@media(min-width: @breakTablet) {
+	.logo-container {
+		position: absolute;
+		-webkit-transform: translate(-10px, -50vh);
+		transform: translate(-10px, -50vh);
+	}
 }
 .logo {
 	width: 45vw;
-	min-width: 320px;
+	min-width: 300px;
 	height: auto;
 }
 .main-color {
@@ -142,6 +174,7 @@ img {
 
 	.home .main-heading {
 		font-size: 70px;
+		margin-right: 50px;
 		-webkit-flex: 1 1 auto;
 		-ms-flex: 1 1 auto;
 		flex: 1 1 auto;
@@ -159,12 +192,6 @@ img {
 }
 .services-list {
 	list-style: none;
-	text-align: right;
-	width: 20vw;
-	padding-top: 20px;
-	-webkit-flex: none;
-	-ms-flex: none;
-	flex: none;
 	line-height: 2;
 }
 .services-list-item {
@@ -180,7 +207,18 @@ img {
 		content: ""
 	}
 }
-
+@media(min-width: @breakTablet) {
+	.services-list {
+		list-style: none;
+		line-height: 2;
+		text-align: right;
+		padding-top: 20px;
+		width: 20vw;
+		-webkit-flex: none;
+		-ms-flex: none;
+		flex: none;
+	}
+}
 .portfolio-container {
 	display: -webkit-flex;
 	display: -ms-flexbox;
@@ -189,7 +227,12 @@ img {
 	-ms-flex-wrap: wrap;
 	flex-wrap: wrap;
 
-	margin: 150px 0 25px;
+	margin: 50px 0 25px;
+}
+@media(min-width: @breakTablet) {
+	.portfolio-container {
+		margin-top: 150px;
+	}
 }
 .portfolio-item {
 	-webkit-flex: 0 1 100%;
@@ -197,6 +240,8 @@ img {
 	flex: 0 1 100%;
 	position: relative;
 	overflow: hidden;
+	//outline: none;
+	//transition: outline 100ms ease-out;
 	&:before {
 		display: block;
 		content: "";
@@ -211,7 +256,9 @@ img {
 		left: 0;
 	}
 	.portfolio-preview {
+		-webkit-transform: scale(1, 1);
 		transform: scale(1, 1);
+		-webkit-transform-origin: top center;
 		transform-origin: top center;
 		transition: transform 100ms ease-out;
 		transition-delay: 30ms;
@@ -221,26 +268,24 @@ img {
 	}
 	.portfolio-content {
 		cursor: pointer;
-
 	}
 
 	.info {
 		opacity: 0;
-		text-align: right;
 		transition: opacity 250ms ease-out;
 		transition-delay: 100ms;
-		background: fade(@clrDark, 90);
+		background: fade(darken(@clrDark, 15), 95);
 		position: absolute;
 		top: 0;
 		left: 0;
 		right: 0;
 		bottom: 0;
-		padding: 50px;
+		padding: 60px 50px;
 		border: 8px solid @clrHighlightOnLight;
 		color: #fff;
 
 		h2 {
-			font-size: 25px;
+			font-size: 18px;
 			font-style: oblique;
 			font-weight: lighter;
 			text-transform: uppercase;
@@ -250,7 +295,11 @@ img {
 	}
 
 	&.active, &:hover {
+		z-index: 100;
+		//outline: 5000px solid fade(#000, 70);
+
 		.portfolio-preview {
+			-webkit-transform: scale(1.1, 1.1);
 			transform: scale(1.1, 1.1);
 			transition-duration: 450ms;
 		}
@@ -259,16 +308,21 @@ img {
 			opacity: 1;
 		}
 	}
-
-	&:nth-child(even) .info {
-		text-align: left;
-	}
 }
-@media(min-width: @breakTablet) {
+@media(min-width: @breakNormal) {
 	.portfolio-item {
 		-webkit-flex: 0 1 50%;
 		-ms-flex: 0 1 50%;
 		flex: 0 1 50%;
+
+		.info {
+			h2 {
+				font-size: 25px;
+			}
+		}
+		&:nth-child(odd) .info {
+			text-align: right;
+		}
 
 	}
 }
