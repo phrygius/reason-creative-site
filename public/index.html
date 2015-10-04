@@ -1,22 +1,35 @@
 <!doctype html>
 <html>
 	<head>
-		<title>Test</title>
+		<title>Web and Graphic Design in Brooklyn | Reason Creative</title>
 		<meta charset="utf-8" />
-		<link href='http://fonts.googleapis.com/css?family=Lato:400,300,700,400italic' rel='stylesheet' type='text/css'>
+		<link rel="shortcut icon" href="/favicon.png" type="image/png" />
+		<link href='https://fonts.googleapis.com/css?family=Lato:400,300,700,400italic' rel='stylesheet' type='text/css'>
 		<link rel="stylesheet" href="css/style.css" />
 		<meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
 	</head>
 	<body class="home">
-		<div class="main-container">
-			<div class="background-container" role="presentation">
-				<img src="img/nebula.jpg" alt="background" />
+		<div class="background-container">
+			<!-- <img src="img/nebula-diagonal.jpg" alt="background" /> -->
+			<div class="logo-container">
+				<div class="logo-text"><img src="img/logo-text.svg" alt="Reason Creative" /></div>
+				<div class="logo-mark"><img src="img/logo-mark.svg" alt="Reason Creative" /></div>
 			</div>
+		</div>
+		<div class="main-container">
+			<nav aria-role="navigation" class="main-navigation">
+				<a href="/" class="nav-link home">Home</a>
+				<hr />
+				<a href="/portfolio/item1" class="nav-link portfolio-link">Project 1</a>
+				<a href="/portfolio/item1" class="nav-link portfolio-link">Project 2</a>
+				<a href="/portfolio/item1" class="nav-link portfolio-link">Project 3</a>
+				<hr />
+				<a href="/blog/item1" class="nav-link blog-link">Blog 1</a>
+				<a href="/blog/item1" class="nav-link blog-link">Blog 2</a>
+				<a href="/blog/item1" class="nav-link blog-link">Blog 3</a>
+			</nav>
 			<div class="content-container">
 				<div class="content">
-					<div class="logo-container">
-						<img class="logo" src="img/logo-green.svg" alt="Reason Creative" />
-					</div>
 					<div class="heading-services-container">
 						<h1 class="main-heading">
 							<span class="heading-name">Reason Creative</span>
@@ -26,7 +39,7 @@
 							<ul class="services-list">
 								<li class="services-list-item">Web design</li>
 								<li class="services-list-item">Front-end develop&shy;ment</li>
-								<li class="services-list-item">Custom Wordpress &amp; Craft develop&shy;ment</li>
+								<li class="services-list-item">Custom Wordpress &amp; Craft CMS develop&shy;ment</li>
 								<li class="services-list-item">Logos</li>
 								<li class="services-list-item">Business cards</li>
 								<li class="services-list-item">Posters</li>
@@ -70,18 +83,32 @@
 								<div class="portfolio-preview" style="background-image: url(img/portfolio/rt-enterprises-cards-top.jpg);"></div>
 								<div class="info">
 									<h2>RT Enterprises</h2>
-									<p> Rebecca Terry needed a logo. RT Enterprises is a consultancy that works with corporate clients so the logo needed to show the professionalism with which Rebecca works.</p>
+									<p>Rebecca Terry needed a logo. RT Enterprises is a consultancy that works with corporate clients so the logo needed to show the professionalism with which Rebecca works.</p>
 									<p><a class="button" href="#">View Project</a></p>
 								</div>
 							</div>
 						</div>
-					</div>
+						<div class="portfolio-item">
+							<div class="portfolio-content">
+								<div class="portfolio-preview" style="background-image: url(img/portfolio/invite1.jpg);"></div>
+								<div class="info">
+									<h2>Wedding Invitation</h2>
+									<p>This was a project made for personal reasons... my wedding!</p>
+									<p><a class="button" href="#">View Project</a></p>
+								</div>
+							</div>
+						</div>
+					</div><!-- END .porftolio-container -->
+					<div class="contact-container">
+						<h2>Contact me!</h2>
+						<div id="wufoo-m1nawlat121mkak"></div>
+						<script type="text/javascript">var m1nawlat121mkak;(function(d, t) {var s = d.createElement(t), options = {'userName':'phrygius', 'formHash':'m1nawlat121mkak', 'autoResize':true, 'height':'497', 'async':true, 'host':'wufoo.com', 'header':'show', 'ssl':true}; s.src = ('https:' == d.location.protocol ? 'https://' : 'http://') + 'www.wufoo.com/scripts/embed/form.js'; s.onload = s.onreadystatechange = function() {var rs = this.readyState; if (rs) if (rs != 'complete') if (rs != 'loaded') return; try { m1nawlat121mkak = new WufooForm();m1nawlat121mkak.initialize(options);m1nawlat121mkak.display(); } catch (e) {}}; var scr = d.getElementsByTagName(t)[0], par = scr.parentNode; par.insertBefore(s, scr); })(document, 'script');</script>
+					</div><!-- END .contact-container -->
 				</div><!-- END .content -->
 			</div>
 		</div>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 		<script>
-			// 
 			function debounce(func, wait, immediate) {
 				var timeout;
 				return function() {
@@ -97,37 +124,21 @@
 				};
 			};
 
-			if(window.innerWidth > 600) {
-				var onMouseMove = debounce(function(event) {
-					var left = event.pageX, 
-						top = event.pageY,
-						width = window.innerWidth,
-						height = window.innerHeight
-						container = $('.background-container');
-					if(width > 0 
-						&& height > 0 
-						&& container.length > 0
-						&& !$('body').hasClass('scrolling')
-					) {
-						var leftPercent = Math.floor((left / width) * 100),
-							topPercent = Math.floor((top / height) * 100);
-						container.css({
-							top: (0 - topPercent / 5) + 'px',
-							left: (0 - leftPercent / 5) + 'px'
-						});
-					}
-				}, 10);
-				$('body').on('mousemove', onMouseMove);
-			}
-
 			var scrollTimeout = null;
-			var onScroll = debounce(function() {
+			var scrollTop = 0;
+			var logo = $('.logo-container').get(0);
+			var onScroll = debounce(function(event) {
+				scrollTop = document.body.scrollTop;
+
 				clearTimeout(scrollTimeout);
 				$('body').addClass('scrolling');
 				scrollTimeout = setTimeout(function() {
 					$('body').removeClass('scrolling');
 				}, 1000);
-			}, 50);
+
+				logo.style.transform = 'translate3d(0, -' + Math.floor(scrollTop / 10) + 'px, 0)';
+			}, 10);
+//			document.addEventListener('scroll', onScroll);
 
 			var portfolioContainer = $('.portfolio-container');
 			if(portfolioContainer.length === 1) {
@@ -140,6 +151,11 @@
 					$(this).removeClass('active');
 				});
 			}
+			portfolioContainer.on('click', 'a.button', function(event) {
+				event.preventDefault();
+				$(event.target).text('We\'re under construction :(');
+				return false;
+			})
 		</script>
-	</body>
+		<script> (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o), m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m) })(window,document,'script','//www.google-analytics.com/analytics.js','ga'); ga('create', 'UA-21971893-1', 'auto'); ga('send', 'pageview'); </script> </body>
 </html>
