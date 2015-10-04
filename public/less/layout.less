@@ -13,13 +13,17 @@ body {
 	color: #fff;
 	perspective: 1000px;
 	perspective-origin: 50% 50%;
-	line-height: 1.5;
-	letter-spacing: 0.03rem;
 	font-family: "Avenir Next", "Avenir", "Lato", Helvetica, sans-serif;
-	font-size: 87.5%;
+	font-size: 16px;
+	font-size: 4vw;
 	line-height: 1.5;
 	letter-spacing: 0.07em;
 	font-weight: 400;
+}
+@media(min-width: @breakTablet) {
+	body {
+		font-size: 1.5vw;
+	}
 }
 h1, h2, h3, h4, p, ul, ol, dl {
 	margin: 0 0 1rem;
@@ -44,16 +48,16 @@ a.button, .button, button, input[type="submit"] {
 	display: inline-block;
 	color: #fff;
 	background: @clrDark;
-	border: 2px solid @clrHighlightOnDark;
+	border: 2px solid #fff;
 	width: auto;
 	padding: 10px 20px;
 	text-decoration: none;
 	text-transform: uppercase;
-	font-size: 14px;
-	letter-spacing: 0.1em;
+	font-size: 0.9rem;
+	letter-spacing: 0.1rem;
 	font-weight: 400;
 	&:hover {
-		background: @clrHighlightOnDark;
+		background: transparent;
 	}
 }
 
