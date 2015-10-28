@@ -1,0 +1,794 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"viewpo",
+				"viewports"
+			],
+			[
+				"inn",
+				"innerWidth"
+			],
+			[
+				"add",
+				"addEventListener"
+			],
+			[
+				"backg",
+				"background-container"
+			],
+			[
+				"font",
+				"font-family"
+			],
+			[
+				"curren",
+				"currentEle"
+			],
+			[
+				"node",
+				"nodeContents"
+			],
+			[
+				"curr",
+				"currentEle"
+			],
+			[
+				"is",
+				"isElementOverflowed"
+			],
+			[
+				"first-",
+				"first-child"
+			],
+			[
+				"nod",
+				"nodeType"
+			],
+			[
+				"type",
+				"nodeType"
+			],
+			[
+				"cur",
+				"currentEle"
+			],
+			[
+				"temp",
+				"tempEle"
+			],
+			[
+				"bla",
+				"blankRexex"
+			],
+			[
+				"span",
+				"span-all"
+			],
+			[
+				"roku-co",
+				"roku-code-message"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "css/main.scss",
+			"settings":
+			{
+				"buffer_size": 1063,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "_sass/_base.scss",
+			"settings":
+			{
+				"buffer_size": 2909,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "_sass/_layout.scss",
+			"settings":
+			{
+				"buffer_size": 4299,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "_sass/_syntax-highlighting.scss",
+			"settings":
+			{
+				"buffer_size": 3355,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"contents": "<!doctype html>\n<html>\n  {% include head.html %}\n  <body class=\"home\">\n    \n    <div class=\"main-viewport\">\n      <div id=\"vpc\" class=\"viewport-container\">\n        <div class=\"viewport top left inactive\"></div>\n        <div class=\"viewport top center\"></div>\n        <div class=\"viewport top right inactive\"></div>\n        <div class=\"viewport center-row left\">\n    <div class=\"background-container\">\n      <div class=\"logo-container\">\n        <div class=\"logo-text\"><img src=\"img/logo-text.svg\" alt=\"Reason Creative\" /></div>\n        <div class=\"logo-mark\"><img src=\"img/logo-mark.svg\" alt=\"Reason Creative\" /></div>\n      </div>\n    </div>\n    <div class=\"main-container\">\n      <nav aria-role=\"navigation\" class=\"main-navigation\">\n        <a href=\"/\" class=\"nav-link home\">Home</a>\n        <hr />\n        <a href=\"/portfolio/item1\" class=\"nav-link portfolio-link\">Project 1</a>\n        <a href=\"/portfolio/item1\" class=\"nav-link portfolio-link\">Project 2</a>\n        <a href=\"/portfolio/item1\" class=\"nav-link portfolio-link\">Project 3</a>\n        <hr />\n        {% for post in site.posts limit:3 %}\n        <a href=\"{{post.url}}\" class=\"nav-link blog-link\">{{post.title}}</a>\n        {% endfor %}\n      </nav>\n      <div class=\"content-container\">\n        <div class=\"content\">\n          {{ content }}\n          {% include footer.html %}\n        </div><!-- END .content -->\n      </div>\n    </div>\n    <script src=\"https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js\"></script>\n    <script>\n      function debounce(func, wait, immediate) {\n        var timeout;\n        return function() {\n          var context = this, args = arguments;\n          var later = function() {\n            timeout = null;\n            if (!immediate) func.apply(context, args);\n          };\n          var callNow = immediate && !timeout;\n          clearTimeout(timeout);\n          timeout = setTimeout(later, wait);\n          if (callNow) func.apply(context, args);\n        };\n      };\n\n      var scrollTimeout = null;\n      var scrollTop = 0;\n      var logo = $('.logo-container').get(0);\n      var onScroll = debounce(function(event) {\n        scrollTop = document.body.scrollTop;\n\n        clearTimeout(scrollTimeout);\n        $('body').addClass('scrolling');\n        scrollTimeout = setTimeout(function() {\n          $('body').removeClass('scrolling');\n        }, 1000);\n\n        logo.style.transform = 'translate3d(0, -' + Math.floor(scrollTop / 10) + 'px, 0)';\n      }, 10);\n      document.addEventListener('scroll', onScroll);\n\n      var portfolioContainer = $('.portfolio-container');\n      portfolioContainer.on('click', 'a.button', function(event) {\n        event.preventDefault();\n        $(event.target).text('We\\'re under construction :(');\n        return false;\n      })\n    </script>\n    <script> (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o), m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m) })(window,document,'script','//www.google-analytics.com/analytics.js','ga'); ga('create', 'UA-21971893-1', 'auto'); ga('send', 'pageview'); </script> </body>\n</html>",
+			"file": "_layouts/default.html",
+			"file_size": 2914,
+			"file_write_time": 1446061319000000,
+			"settings":
+			{
+				"buffer_size": 3205,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "index.html",
+			"settings":
+			{
+				"buffer_size": 3874,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "_includes/footer.html",
+			"settings":
+			{
+				"buffer_size": 1116,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "_includes/head.html",
+			"settings":
+			{
+				"buffer_size": 954,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "_includes/header.html",
+			"settings":
+			{
+				"buffer_size": 1120,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"console":
+	{
+		"height": 0.0
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/Users/jason/Library/Application Support/Sublime Text 2/Packages/Default/Preferences.sublime-settings",
+		"/Users/jason/Library/Application Support/Sublime Text 2/Packages/User/Preferences.sublime-settings",
+		"/Users/jason/Sites/reason-creative-site/_config.yml",
+		"/Users/jason/Sites/reason-creative-site/index.html",
+		"/Users/jason/Dropbox/Public/page-transitions/index.html",
+		"/Users/jason/Dropbox/Public/page-transitions/portfolio-item.html",
+		"/Users/jason/Dropbox/Public/page-transitions/main.js",
+		"/Users/jason/Dropbox/Public/page-transitions/style.css",
+		"/Users/jason/Downloads/PullToShare/js/main_2.js",
+		"/Users/jason/Desktop/drag.html",
+		"/Users/jason/Desktop/instagram.svg",
+		"/Users/jason/Documents/photoshop/icons_tgc/demo.html",
+		"/Users/jason/Downloads/lax.js",
+		"/Users/jason/Documents/photoshop/icons_snagfims/demo.html",
+		"/Users/jason/Downloads/-.js",
+		"/Users/jason/Dropbox/Design/Personal/website 2015/index.html",
+		"/Users/jason/Documents/photoshop/icons_snagfilms/demo-files/demo.css",
+		"/Users/jason/Documents/photoshop/icons_snagfilms/demo.html",
+		"/Users/jason/Documents/photoshop/icons_tgc/Read Me.txt",
+		"/Users/jason/Documents/photoshop/icons_tgc/selection.json",
+		"/Users/jason/Documents/photoshop/icons_tgc/demo-files/demo.css",
+		"/Users/jason/Documents/servers/tomcat7-snag-cms/conf/context.xml",
+		"/Users/jason/Documents/servers/tomcat7-snag/conf/context.xml",
+		"/Users/jason/Downloads/www-LAX/index.html",
+		"/Users/jason/Documents/servers/tomcat7-snag/conf/Catalina/dev.snagfilms.com/ROOT.xml",
+		"/Users/jason/Downloads/OLDwww-LAX/index.html",
+		"/Users/jason/Downloads/OLDwww-LAX/css/jquery.countdown.css",
+		"/Users/jason/Downloads/webfontkit-20150430-160152/stylesheet.css",
+		"/Users/jason/Downloads/www-LAX/js/jquery.countdown.js",
+		"/Users/jason/Downloads/www-LAX/js/main.js",
+		"/Users/jason/Downloads/OLDwww-LAX/css/main.css",
+		"/Users/jason/Downloads/www-LAX/css/jquery.countdown.css",
+		"/Users/jason/Downloads/www-LAX/css/main.css",
+		"/Users/jason/Downloads/www-LAX/js/vendor/modernizr-2.8.3.min.js",
+		"/Users/jason/Downloads/www-LAX/css/normalize.min.css",
+		"/Users/jason/Downloads/www-LAX/css/normalize.css",
+		"/Users/jason/Downloads/www-LAX/index-vl.html",
+		"/Users/jason/Dropbox/Design/Wedding/website/style.css",
+		"/Users/jason/Dropbox/Design/Wedding/website/index.html",
+		"/Users/jason/Documents/workspace/snagfilms-src/src/main/webapp/WEB-INF/jsp/common/module/payments/user-manage-subscriptions-module.jsp",
+		"/Users/jason/Desktop/backup/player.html",
+		"/Users/jason/Desktop/backup/player.js",
+		"/Users/jason/Desktop/backup/promo.js",
+		"/Users/jason/Desktop/backup/winnersview-location-generic.js",
+		"/Users/jason/Desktop/backup/team_league.less",
+		"/Users/jason/Desktop/backup/roster-player-page.jsp",
+		"/Users/jason/Desktop/backup/ViewLiftSiteDifferences.java",
+		"/Users/jason/Desktop/backup/head-static-global.jsp",
+		"/Users/jason/Desktop/main.js",
+		"/Users/jason/Documents/servers/tomcat7-snag-cms/conf/server.xml",
+		"/Users/jason/Documents/servers/tomcat7-snag/conf/server.xml",
+		"/Users/jason/Documents/servers/tomcat7-snag/conf/web.xml",
+		"/Users/jason/Documents/servers/tomcat7-snag-cms/bin/setenv.sh",
+		"/Users/jason/Dropbox/Design/Wedding/rsvp wording.txt",
+		"/Users/jason/Documents/workspace/build-redeploy-app.sh",
+		"/Users/jason/Documents/workspace/deploy-build.sh",
+		"/Users/jason/Documents/workspace/stop-tomcat.sh",
+		"/Users/jason/Documents/workspace/start-tomcat.sh",
+		"/Users/jason/Documents/servers/tomcat7-snag-cms/conf/Catalina/dev.snagfilms.com/ROOT.xml",
+		"/Users/jason/Documents/context.backup.201503241500.xml",
+		"/Users/jason/Downloads/contact-reason-creative/README.txt",
+		"/Users/jason/Downloads/contact-reason-creative/index.html",
+		"/Users/jason/Downloads/index.php",
+		"/Users/jason/Documents/Artboard 1.svg",
+		"/Users/jason/Documents/Artboard 2.svg",
+		"/Users/jason/Documents/interviews/shopping cart/main.js",
+		"/Users/jason/Documents/interviews/shopping cart/index.html",
+		"/Users/jason/Documents/interviews/tags/index.html",
+		"/Users/jason/Downloads/tags/index.html",
+		"/Users/jason/Downloads/tags/main.js",
+		"/Users/jason/Downloads/tags edit/main.js",
+		"/Users/jason/Desktop/emails/email1.html",
+		"/Users/jason/Desktop/emails/email2.html",
+		"/Users/jason/Downloads/test_events_production.html",
+		"/Users/jason/Desktop/temp stash/init-global.jsp",
+		"/Users/jason/Desktop/temp stash/head-static-global.jsp",
+		"/Users/jason/Desktop/temp stash/login.js",
+		"/Users/jason/Downloads/vl_events.csv",
+		"/Users/jason/Documents/SnagFilms Technical Interview",
+		"/Users/jason/Downloads/Age Gate/form.html",
+		"/Users/jason/Desktop/kalyan questions.txt",
+		"/Users/jason/Downloads/event js and example use in a form submit/event.js",
+		"/Users/jason/Downloads/event js and example use in a form submit/event_form_handler.js",
+		"/Users/jason/Downloads/handlebars-v2.0.0.js",
+		"/Users/jason/Downloads/event js and example use in a form submit/index.html",
+		"/Users/jason/Desktop/license.txt",
+		"/Users/jason/Documents/interview-questions.txt",
+		"/Users/jason/Desktop/design annotation requirements.txt",
+		"/Users/jason/Documents/CSS:UX:UI Questions",
+		"/Users/jason/Downloads/footer.php",
+		"/Users/jason/Downloads/header.php",
+		"/Users/jason/Downloads/centurycenter:js/main.js",
+		"/Users/jason/Downloads/ItemTransitions/js/modernizr.custom.js",
+		"/Users/jason/Downloads/ItemTransitions/js/classie.js",
+		"/Users/jason/Downloads/ItemTransitions/js/main.js",
+		"/Users/jason/Downloads/modernizr.custom.85313.js",
+		"/Users/jason/Downloads/ionicons-1.5.2/css/ionicons.css",
+		"/Users/jason/Downloads/jquery-2.1.1.js",
+		"/Users/jason/Documents/workspace/indiewire/src/main/webapp/js/jumbotron/image.js",
+		"/Users/jason/Downloads/jquery.scrollTo-1.4.12 2/jquery.scrollTo.js",
+		"/Users/jason/Downloads/jquery.scrollTo-1.4.12 2/jquery.scrollTo-1.4.6.min.js",
+		"/Users/jason/Documents/servers/tomcat7-iw/conf/context.xml",
+		"/Users/jason/Documents/servers/tomcat7-snag/conf/context.201407101742.xml",
+		"/Users/jason/Desktop/regions/cssregions.min.js",
+		"/Users/jason/Desktop/regions/index.html",
+		"/Users/jason/Desktop/test page/index.html",
+		"/Users/jason/Desktop/test page/style.css",
+		"/Users/jason/Downloads/font-awesome-4.1.0/css/font-awesome.css",
+		"/Users/jason/Downloads/indiewire (1)/css/style.css",
+		"/Users/jason/Downloads/Scarlett 1.docx",
+		"/Users/jason/Desktop/home.json",
+		"/Users/jason/Desktop/movies.json",
+		"/Users/jason/Documents/servers/tomcat6-snag3/conf/context.xml",
+		"/Users/jason/Documents/workspace/snagfilms-src/src/main/webapp/assets/scripts/snag.js",
+		"/Users/jason/Downloads/font-awesome-4.0.3/less/variables.less",
+		"/Users/jason/Downloads/font-awesome-4.0.3/less/path.less",
+		"/Users/jason/Downloads/bootstrap-3.1.1-dist/js/bootstrap.js",
+		"/Users/jason/Documents/workspace/snagfilms-src/src/main/webapp/assets/css/style_new.css",
+		"/Users/jason/Desktop/board.html",
+		"/Users/jason/Documents/workspace/snagfilms-src/src/main/webapp/modules/staffPickDynamicLead.jsp",
+		"/Users/jason/Desktop/staging-home.json",
+		"/Users/jason/Desktop/prod-home.json",
+		"/Users/jason/Documents/workspace/snagfilms-src/src/main/java/com/snagfilms/model/User.java",
+		"/Users/jason/Documents/workspace/snagfilms-src/src/main/webapp/assets/templates/browseLanding.html",
+		"/Users/jason/Downloads/dist/css/bootstrap.css",
+		"/Users/jason/Documents/workspace/snagfilms-src/src/main/webapp/assets/css/less/imports/bootstrap.less",
+		"/Users/jason/Documents/regular expressions/categories page to JSON.txt",
+		"/Users/jason/Downloads/bootstrap-3.0.2/less/bootstrap.less"
+	],
+	"find":
+	{
+		"height": 35.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+			"",
+			"style.css",
+			""
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"{\n",
+			"\n	",
+			"currentSubscriptionPlan",
+			"siteProrationMessage",
+			"fff",
+			"class=\"pos",
+			"positions",
+			"countdown",
+			"header-logo",
+			"mailto:",
+			"header-logo",
+			".countd",
+			"logo",
+			"countdownbar",
+			"//",
+			"countdown-",
+			"logo",
+			"devices",
+			"devices.",
+			"amaz",
+			"amazon",
+			"eot",
+			"<p>",
+			"font-f",
+			"attendant-name",
+			"  \n",
+			"develop",
+			"devel",
+			":8080",
+			"solr",
+			"solr/home",
+			"serverurl",
+			"defaultdata",
+			"mysql",
+			"isdevelop",
+			"port",
+			"baseurl",
+			"timeout",
+			"_NEW",
+			".png",
+			"chevron-left",
+			"c:",
+			"solf",
+			"<<",
+			"dims",
+			" target=\"_self\"",
+			"<\\/?ul[^>]*>",
+			"<\\/?li[^>]*>",
+			"<\\/?li[^>]>",
+			"<\\/?li[^>]*>",
+			"<\\/?li[^>]>",
+			">",
+			"filterblank",
+			".inner",
+			".outer",
+			"“",
+			"”",
+			"’",
+			"staging",
+			"tomcat",
+			"staging",
+			"<<<",
+			"</span></p>",
+			"<p><span>",
+			"</a>",
+			"<a href=",
+			"<a",
+			"ted-lon",
+			"</li",
+			"<li",
+			"<<<",
+			"++",
+			"\\\"script\\\"\\: \\\".*(http\\:\\/\\/.*\\.png).*href=\\\\\\\"(.*)\\\\\\\"><span\\sclass=\\\\\\\"genre-border.*(genre-centered)\\\\\\\">(.*)\\s<span class=\\\\\\\"genre-count\\\\\\\">\\((.*)\\)<\\/span>.*,",
+			"\\\"script\\\"\\: \\\".*(http\\:\\/\\/.*\\.png).*href=\\\\\\\"(.*)\\\\\\\"><span.*(genre-centered)\\\\\\\">(.*)\\s<span class=\\\\\\\"genre-count\\\\\\\">\\((.*)\\)<\\/span>.*,",
+			"\\\"script\\\"\\: \\\".*(http\\:\\/\\/.*\\.png).*href=\\\\\\\"(.*)\\\\\\\".*(genre-centered)\\\\\\\">(.*)\\s<span class=\\\\\\\"genre-count\\\\\\\">\\((.*)\\)<\\/span>.*,",
+			"\\\"script\\\"\\: \\\".*(http\\:\\/\\/.*\\.png).+(genre-centered)\\\\\\\">(.*)\\s<span class=\\\\\\\"genre-count\\\\\\\">\\((.*)\\)<\\/span>.*,",
+			"\\\"script\\\"\\: \\\".*(http\\:\\/\\/.*\\.png).+(genre-centered)\\\\\\\">(.*)\\s?<span class=\\\\\\\"genre-count\\\\\\\">(\\(.*)\\)<\\/span>.*,",
+			"\\\"script\\\"\\: \\\".*(http\\:\\/\\/.*\\.png).+(genre-centered)\\\\\\\">(.*)\\s?<span class=\\\\\\\"genre-count\\\\\\\">(.*)<\\/span>.*,",
+			"abtes",
+			"social",
+			"\"",
+			"\n+",
+			"cookie",
+			"eventId: \"00000140-0237-de04-a97c-febf64c50000\",",
+			"eventId: \"0000013f-fed8-d431-a7bf-ffda2d8f0000\",",
+			"eventId: \"00000140-0237-de04-a97c-febf64c50000\",",
+			"eventId",
+			"{\n",
+			"1.5",
+			"<<<<",
+			"\\s+",
+			"'",
+			"\\s+",
+			"\\n",
+			"><",
+			"\\\"",
+			"\\t",
+			"\\r",
+			"\\n",
+			"templ",
+			"handle"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"name-span",
+			".jpg",
+			"",
+			".page-content",
+			".page",
+			"&ldquo;",
+			"&rdquo;",
+			"&apos;",
+			"</p>",
+			"<p>",
+			"\"script\": \"{name: '$4', href: '$2', image: '$1', count: '$5'},\",",
+			"\"script\": \"{name: '$3', image: '$1', count: '$4'},\",",
+			"\"script\": \"{name: '$2', image: '$1', count: '$3'},\",",
+			"\"",
+			" ",
+			"\\'",
+			" ",
+			"",
+			"\\n",
+			"\"",
+			""
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 2,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "css/main.scss",
+					"settings":
+					{
+						"buffer_size": 1063,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								435,
+								435
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 11.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "_sass/_base.scss",
+					"settings":
+					{
+						"buffer_size": 2909,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "_sass/_layout.scss",
+					"settings":
+					{
+						"buffer_size": 4299,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								294,
+								294
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "_sass/_syntax-highlighting.scss",
+					"settings":
+					{
+						"buffer_size": 3355,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
+			]
+		},
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 4,
+					"file": "_layouts/default.html",
+					"settings":
+					{
+						"buffer_size": 3205,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								220,
+								220
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "index.html",
+					"settings":
+					{
+						"buffer_size": 3874,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								633,
+								633
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "_includes/footer.html",
+					"settings":
+					{
+						"buffer_size": 1116,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1116,
+								1116
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "_includes/head.html",
+					"settings":
+					{
+						"buffer_size": 954,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								954,
+								954
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 8,
+					"file": "_includes/header.html",
+					"settings":
+					{
+						"buffer_size": 1120,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 0.0
+	},
+	"input":
+	{
+		"height": 0.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			],
+			[
+				1,
+				0,
+				2,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			0.5,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"replace":
+	{
+		"height": 64.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+			[
+				"",
+				"/Users/jason/Documents/SnagFilms Technical Interview"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 150.0,
+	"status_bar_visible": true
+}

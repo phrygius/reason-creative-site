@@ -1,0 +1,96 @@
+
+html, body, .main-viewport {
+    margin: 0;
+    padding: 0;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+}
+body {
+    font-size: 4vw;
+}
+@media(min-width: 728px) {
+    body {
+        font-size: 2vw;
+    }
+}
+h1, h2, h3, p, ul, ol {
+    margin: 0 0 1rem;
+}
+a, a:hover {
+    color: cyan;
+}
+.viewport-container {
+    position: relative;
+    width: 300vw;
+    height: 300vh;
+    transform: translate3d(-100vw, -100vh, 0px);
+    transition: transform 350ms ease-out 80ms;
+
+    display: flex;
+    flex-wrap: wrap;
+}
+.viewport-container.right {
+    transform: translate3d(-200vw, -100vh, 0px);
+}
+.viewport {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+}
+
+.viewport .header, .viewport .footer {
+    background: rgba(0, 0, 0, 0.5);
+    flex: none;
+}
+.viewport .main {
+    flex: 1 1 auto;
+    overflow: auto;
+}
+
+.viewport.top.left {
+    background: #E3DFBA;
+}
+.viewport.top.center {
+    background: #C8D6BF;
+}
+.viewport.top.right {
+    background: #93CCC6;
+}
+.viewport.center-row.left {
+    background: #6CBDB5;
+}
+.viewport.center-row.center {
+    background: #2C403C;
+}
+.viewport.center-row.right {
+    background: #E3DFBA;
+}
+.viewport.bottom.left {
+    background: #C8D6BF;
+}
+.viewport.bottom.center {
+    background: #93CCC6;
+}
+.viewport.bottom.right {
+    background: #6CBDB5;
+}
+
+.header, .main > * {
+    padding-left: 5vw;
+    padding-right: 5vw;
+}
+
+::-webkit-scrollbar-track {
+    background-color: #2D3238;
+}
+::-webkit-scrollbar {
+    width: 6px;
+    background-color: #000000;
+}
+::-webkit-scrollbar-thumb {
+    background-color: #6BF5CF;
+}

@@ -1,0 +1,153 @@
+<!doctype html>
+<html>
+  {% include head.html %}
+  <body class="home">
+    <div class="main-viewport">
+      <div id="vpc" class="viewport-container">
+        <div class="viewport top left inactive"></div><!-- END .viewport.top.left -->
+        <div class="viewport top center"></div><!-- END .viewport.top.center -->
+        <div class="viewport top right inactive"></div><!-- END .viewport.top.right -->
+        <div class="viewport center-row left"></div>
+        <div class="viewport center-row center active">
+          <div class="background-container">
+            <div class="logo-container">
+              <div class="logo-text"><img src="img/logo-text.svg" alt="Reason Creative" /></div>
+              <div class="logo-mark"><img src="img/logo-mark.svg" alt="Reason Creative" /></div>
+            </div>
+          </div>
+          <div class="main-container">
+            <nav aria-role="navigation" class="main-navigation">
+              <a href="/" class="nav-link home">Home</a>
+              <hr />
+              <a href="/portfolio/item1" class="nav-link portfolio-link">Project 1</a>
+              <a href="/portfolio/item1" class="nav-link portfolio-link">Project 2</a>
+              <a href="/portfolio/item1" class="nav-link portfolio-link">Project 3</a>
+              <hr />
+              {% for post in site.posts limit:3 %}
+              <a href="{{post.url}}" class="nav-link blog-link">{{post.title}}</a>
+              {% endfor %}
+            </nav>
+            <div class="content-container">
+              <div class="content">
+                {{ content }}
+                {% include footer.html %}
+              </div><!-- END .content -->
+            </div>
+          </div>
+        </div><!-- END .viewport.center-row.center -->
+        <div class="viewport center-row right">
+          <header class="header">
+            <a href="./index.html" class="js-page-transition js-page-destination-center">Back</a> This is the header
+          </header>
+          <main class="main">
+            <h1>Right content</h1>
+          </main>
+        </div><!-- END .viewport.center-row.right -->
+        <div class="viewport bottom left inactive"></div><!-- END .viewport.bottom.left -->
+        <div class="viewport bottom center"></div><!-- END .viewport.bottom.center -->
+        <div class="viewport bottom right inactive"></div><!-- END .viewport.bottom.right -->
+      </div><!-- END .viewport-container -->
+    </div><!-- END .main-viewport -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script>
+      function debounce(func, wait, immediate) {
+        var timeout;
+        return function() {
+          var context = this, args = arguments;
+          var later = function() {
+            timeout = null;
+            if (!immediate) func.apply(context, args);
+          };
+          var callNow = immediate && !timeout;
+          clearTimeout(timeout);
+          timeout = setTimeout(later, wait);
+          if (callNow) func.apply(context, args);
+        };
+      };
+
+      var scrollTimeout = null;
+      var scrollTop = 0;
+      var logo = $('.logo-container').get(0);
+      var onScroll = debounce(function(event) {
+        scrollTop = document.body.scrollTop;
+
+        clearTimeout(scrollTimeout);
+        $('body').addClass('scrolling');
+        scrollTimeout = setTimeout(function() {
+          $('body').removeClass('scrolling');
+        }, 1000);
+
+        logo.style.transform = 'translate3d(0, -' + Math.floor(scrollTop / 10) + 'px, 0)';
+      }, 10);
+      document.addEventListener('scroll', onScroll);
+
+      var portfolioContainer = $('.portfolio-container');
+      portfolioContainer.on('click', 'a.button', function(event) {
+        event.preventDefault();
+        $(event.target).text('We\'re under construction :(');
+        return false;
+      });
+    </script>
+    <script>
+      /**
+       * [  x  ][ top  ][  x  ]
+       * [left ][center][right]
+       * [  x  ][bottom][  x  ]
+       */
+      var viewportContainer = document.getElementById('vpc');
+      var viewports = {
+        top: {
+          element: document.querySelector('.viewport.top.center'),
+          style: "translate3d(-100vw, 0vh, 0px)"
+        },
+        left: {
+          element: document.querySelector('.viewport.center-row.left'),
+          style: "translate3d(0vw, -100vh, 0px)"
+        },
+        center: {
+          element: document.querySelector('.viewport.center-row.center'),
+          style: "translate3d(-100vw, -100vh, 0px)"
+        },
+        right: {
+          element: document.querySelector('.viewport.center-row.right'),
+          style: "translate3d(-200vw, -100vh, 0px)"
+        },
+        bottom: {
+          element: document.querySelector('.viewport.bottom.center'),
+          style: "translate3d(-100vw, -200vh, 0px)"
+        },
+      };
+      viewports.current = viewports.center;
+
+      $('body').on('click', 'a', function(event) {
+        event.preventDefault();
+        var current = event.target;
+        if(current.classList.contains('js-page-transition')) {
+          var container = '';
+          if(current.classList.contains('js-page-destination-right')) {
+            viewportContainer.style.transform = viewports.right.style;
+            viewports.current = viewports.right;
+            container = '.viewport.right';
+          }
+          else if(current.classList.contains('js-page-destination-center')) {
+            viewportContainer.style.transform = viewports.center.style;
+            viewports.current = viewports.center;
+            container = '.viewport.center';
+          }
+          /**
+             $.ajax({ 
+               type: 'get', 
+               url: './portfolio-item.html', 
+               dataType: 'html', 
+               success: function(data) { 
+                 console.log($(data).find('.viewport.center-row.right')); 
+               } }
+             );
+           */
+          $(viewports.current).html('<h2>Loading</h2>').load(current.getAttribute('href') + ' ' + container);
+        }
+        return false;
+      });
+    </script>
+    <script> (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o), m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m) })(window,document,'script','//www.google-analytics.com/analytics.js','ga'); ga('create', 'UA-21971893-1', 'auto'); ga('send', 'pageview'); </script> </body>
+</html>
