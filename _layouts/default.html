@@ -4,9 +4,9 @@
   <body class="home">
     <div class="main-viewport">
       <div id="vpc" class="viewport-container">
-        <div class="viewport top left inactive"></div><!-- END .viewport.top.left -->
+        <div class="viewport top left"></div><!-- END .viewport.top.left -->
         <div class="viewport top center"></div><!-- END .viewport.top.center -->
-        <div class="viewport top right inactive"></div><!-- END .viewport.top.right -->
+        <div class="viewport top right"></div><!-- END .viewport.top.right -->
         <div class="viewport center-row left"></div>
         <div class="viewport center-row center active">
           <div class="background-container">
@@ -16,17 +16,7 @@
             </div>
           </div>
           <div class="main-container">
-            <nav aria-role="navigation" class="main-navigation">
-              <a href="/" class="nav-link home">Home</a>
-              <hr />
-              <a href="/portfolio/item1" class="nav-link portfolio-link">Project 1</a>
-              <a href="/portfolio/item1" class="nav-link portfolio-link">Project 2</a>
-              <a href="/portfolio/item1" class="nav-link portfolio-link">Project 3</a>
-              <hr />
-              {% for post in site.posts limit:3 %}
-              <a href="{{post.url}}" class="nav-link blog-link">{{post.title}}</a>
-              {% endfor %}
-            </nav>
+            {% include nav.html %}
             <div class="content-container">
               <div class="content">
                 {{ content }}
