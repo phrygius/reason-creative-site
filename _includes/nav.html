@@ -3,13 +3,13 @@
   {% if site.portfolio_items %}
     <hr />
     {% for item in site.portfolio_items %}
-    <a href="{{item.url}}" class="nav-link portfolio-link js-page-destination-right">{{item.title}}</a>
+    <a href="{{item.url}}" class="nav-link portfolio-link js-page-transition js-page-destination-right{{post.target}}">{{item.title}}</a>
     {% endfor %}
   {% endif %}
   {% if site.posts %}
     <hr />
     {% for post in site.posts limit:3 %}
-    <a href="{{post.url}}" class="nav-link blog-link js-page-destination-right">{{post.title}}</a>
+    <a href="{{post.url}}" class="nav-link blog-link js-page-transition js-page-destination-right">{{post.title}}</a>
     {% endfor %}
   {% endif %}
 </nav>

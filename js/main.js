@@ -58,7 +58,10 @@ viewports.current = viewports.center;
 
 $('body').on('click', 'a', function(event) {
   event.preventDefault();
-  var current = event.target;
+  var current = event.target,
+    stateObject = {
+      currentUrl: document.location.pathname
+      };
   if(current.classList.contains('js-page-transition')) {
     var container = '';
     if(current.classList.contains('js-page-destination-right')) {
@@ -73,7 +76,31 @@ $('body').on('click', 'a', function(event) {
       container = '.viewport.center';
     }
 
-    $(viewports.current).html('<h2>Loading</h2>').load(current.getAttribute('href') + ' ' + container);
+    console.log('[AJAX LOAD]', $(viewports.current), current.getAttribute('href'), container);
+    console.log('pushState', stateObject, current.getAttribute('data-title'), current.getAttribute('href'));
+    history.pushState(stateObject, current.getAttribute('data-title'), current.getAttribute('href'));
+
+    try {
+      //$(viewports.current).html('<h2>Loading</h2>').load(current.getAttribute('href') + ' ' + container);
+      $.ajax({
+        url: current.getAttribute('href'),
+        context: viewports.current.element,
+        success: function(data) {
+          var html = $(data);
+          var rightHtml = html.find(container);
+          this.innerHTML = rightHtml.get(0).innerHTML;
+        }
+      })
+    }
+
+    catch(ex) {
+      console.warn(ex.message);
+      console.trace();
+    }
   }
   return false;
 });
+
+$('body').on('popstate', function(event) {
+  console.log('[POPSTATE]', event);
+})

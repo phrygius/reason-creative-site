@@ -20,12 +20,15 @@ h1, h2, h3, p, ul, ol {
 a, a:hover {
     color: cyan;
 }
+.main-navigation {
+    //display: none;
+}
 .viewport-container {
     position: relative;
     width: 300vw;
     height: 100vh;
     transform: translate3d(-100vw, 0vh, 0px);
-    transition: transform 350ms ease-out 80ms;
+    transition: transform 150ms ease-out 80ms;
 
     display: flex;
     flex-wrap: nowrap;
@@ -40,6 +43,7 @@ a, a:hover {
     color: #fff;
     display: flex;
     flex-direction: column;
+    overflow-y: auto;
 }
 
 .viewport .header, .viewport .footer {
