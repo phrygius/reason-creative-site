@@ -47,7 +47,6 @@ a, a:hover {
 }
 
 .viewport .header, .viewport .footer {
-    background: rgba(0, 0, 0, 0.5);
     flex: none;
 }
 .viewport .main {
@@ -56,13 +55,10 @@ a, a:hover {
 }
 
 .viewport.left {
-    background: #E3DFBA;
 }
 .viewport.center {
-    background: #C8D6BF;
 }
 .viewport.right {
-    background: #93CCC6;
 }
 
 .header, .main > * {

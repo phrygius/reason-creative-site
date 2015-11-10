@@ -90,7 +90,7 @@ a.button:hover, .button:hover, button:hover, input[type="submit"]:hover {
   width: 100%;
   min-height: 250px;
   overflow: hidden;
-  z-index: 1;
+  z-index: 0;
   background-image: url('/img/nebula-diagonal-2.jpg');
   background-repeat: no-repeat;
   background-size: cover;
@@ -137,12 +137,13 @@ a.button:hover, .button:hover, button:hover, input[type="submit"]:hover {
 .content-container {
   background: #50e3c2;
   position: relative;
-  z-index: 2;
+  z-index: 1;
   margin: 0;
   padding: 0 5vw 100px;
   transition: all 250ms ease-out;
   transition-delay: 150ms;
   transform: translate3d(0,  0,  0);
+  min-height: 80vh;
 }
 
 .content-container:before {
@@ -151,7 +152,7 @@ a.button:hover, .button:hover, button:hover, input[type="submit"]:hover {
   width: 150%;
   height: 400px;
   position: absolute;
-  z-index: 2;
+  z-index: 1;
   background: #50e3c2;
   transform: rotate(-3deg);
   top: -10vh;
@@ -174,6 +175,7 @@ a.button:hover, .button:hover, button:hover, input[type="submit"]:hover {
     margin: 80vh 0 0;
     padding-left: 10vw;
     padding-right: 10vw;
+    min-height: 20vh;
   }
 }
 
@@ -489,9 +491,17 @@ form li {
 	  left:  200vw;
 	  width:  100vw;
     height: 20vh;
+    z-index: 1;
   }
   .content-container {
     margin: 20vh 0 0;
+    min-height: 80vh;
   }
 }
 
+.portfolio-page {
+  h1 {
+    font-weight: 700;
+    font-size: 6vw;
+  }
+}
