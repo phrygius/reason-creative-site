@@ -3,7 +3,7 @@
   {% if site.portfolio_items %}
     <hr />
     {% for item in site.portfolio_items %}
-    <a href="{{item.url}}" class="nav-link portfolio-link js-page-transition js-page-destination-right{{post.target}}">{{item.title}}</a>
+    <a href="{{item.url}}" data-title="{{item.title}}" class="nav-link portfolio-link js-page-transition js-page-destination-{{item.target}}">{{item.title}}</a>
     {% endfor %}
   {% endif %}
   {% if site.posts %}

@@ -15,26 +15,21 @@ function debounce(func, wait, immediate) {
 
 var scrollTimeout = null;
 var scrollTop = 0;
-var logo = $('.logo-container').get(0);
-var onScroll = debounce(function(event) {
-  scrollTop = document.body.scrollTop;
 
-  clearTimeout(scrollTimeout);
-  $('body').addClass('scrolling');
-  scrollTimeout = setTimeout(function() {
-    $('body').removeClass('scrolling');
-  }, 1000);
+/** [TODO] Find logo and translate within viewport  **/
+// var logo = $('.logo-container').get(0);
+// var onScroll = debounce(function(event) {
+//   scrollTop = document.body.scrollTop;
 
-  logo.style.transform = 'translate3d(0, -' + Math.floor(scrollTop / 10) + 'px, 0)';
-}, 10);
-document.addEventListener('scroll', onScroll);
+//   clearTimeout(scrollTimeout);
+//   $('body').addClass('scrolling');
+//   scrollTimeout = setTimeout(function() {
+//     $('body').removeClass('scrolling');
+//   }, 1000);
 
-var portfolioContainer = $('.portfolio-container');
-portfolioContainer.on('click', 'a.button', function(event) {
-  event.preventDefault();
-  $(event.target).text('We\'re under construction :(');
-  return false;
-});
+//   logo.style.transform = 'translate3d(0, -' + Math.floor(scrollTop / 10) + 'px, 0)';
+// }, 10);
+// document.addEventListener('scroll', onScroll);
 
 /**
  * [left ][center][right]
