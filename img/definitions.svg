@@ -1,0 +1,16 @@
+
+	<!-- For Definitions -->
+	<svg width="100%">
+		<defs>
+			<linearGradient id="SVG_text_gradient" x1="0" y1="0" x2="100%" y2="0%">
+				<stop offset="0%" class="svg-text-stop-1" />
+				<stop offset="100%" class="svg-text-stop-2" />
+			</linearGradient>
+
+			<pattern id="SVG_text_gradient_pattern" 
+				patternUnits="userSpaceOnUse"
+				width="100%" height="100%">
+				<rect width="100%" height="100%" fill="url(#SVG_text_gradient)"/>
+			</pattern>
+		</defs>
+	</svg>

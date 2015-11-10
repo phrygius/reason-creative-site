@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="912px" height="1596px" viewBox="0 0 912 1596" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: Sketch 3.3.2 (12043) - http://www.bohemiancoding.com/sketch -->
+    <title>Lines/Path</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Welcome" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g id="Desktop-HD" sketch:type="MSArtboardGroup" transform="translate(-338.000000, -730.000000)" stroke="#50E3C2" stroke-width="5">
+            <g id="Middle-Section" sketch:type="MSLayerGroup" transform="translate(191.000000, 732.000000)">
+                <g id="Lines/Path" transform="translate(149.000000, 0.000000)" sketch:type="MSShapeGroup">
+                    <g id="Group" transform="translate(422.000000, 0.000000)" stroke-linecap="square">
+                        <path d="M76.0173745,110.25 L23.8397683,103.95" id="Line"></path>
+                        <path d="M100.30695,134.55 L69.7200772,188.55" id="Line"></path>
+                        <path d="M136.291506,121.05 L232.550193,177.75" id="Line"></path>
+                        <path d="M138.090734,91.35 L216.357143,46.35" id="Line"></path>
+                        <path d="M76.0173745,74.25 L0.44980695,2.25" id="Line"></path>
+                        <path d="M108.279389,65.6830919 L116.949807,0.900000034" id="Line-Copy"></path>
+                    </g>
+                    <g id="Group-Copy" transform="translate(801.953154, 139.288691) rotate(-25.000000) translate(-801.953154, -139.288691) translate(713.953154, 67.788691)" stroke-linecap="square">
+                        <path d="M57.0945946,82.8920335 C57.0945946,82.8920335 55.900342,82.7476876 54.4009629,82.5664618 L17.9054054,78.1553459" id="Line"></path>
+                        <path d="M75.3378378,101.162114 L52.3648649,141.762294" id="Line"></path>
+                        <path d="M102.364865,91.0120695 L174.662162,133.642258" id="Line"></path>
+                        <path d="M103.716216,68.6819706 L162.5,34.8484876" id="Line"></path>
+                        <path d="M57.0945946,55.8252471 L0.337837838,1.69167415" id="Line"></path>
+                        <path d="M81.3257212,49.3841728 L87.837838,0.676669687" id="Line-Copy"></path>
+                    </g>
+                    <path d="M553.086921,264.21875 C530.183601,414.640625 453.10546,499.71875 209.382812,553.386719 C-34.339835,607.054688 -85.7734375,973.246094 170.144531,1113.27344 C426.0625,1253.30078 606.988288,1213.07812 715.476562,1342.96875 C823.964837,1472.85938 744.19532,1590.60156 744.19532,1590.60156" id="Path-13"></path>
+                    <path d="M750.90625,353.554688 C675.035156,367.789062 526.726562,395.261719 439.269531,464.316406" id="Path-14"></path>
+                    <path d="M713.476562,234.652344 C713.476562,275.96875 700.242188,357.828125 644.8125,375.96875" id="Path-15"></path>
+                    <path id="Path-18" d=""></path>
+                    <path d="M745.5,1590.5 L810,1561" id="Line" stroke-linecap="square"></path>
+                    <path d="M744.559524,1589.92543 L722,1526" id="Line-Copy-2" stroke-linecap="square"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
