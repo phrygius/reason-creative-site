@@ -9,7 +9,7 @@
 title: Reason Creative
 email: your-email@domain.com
 description: > # this means to ignore newlines until "baseurl:"
-  Site description goes here 
+  Web and Graphic Design in Brooklyn, NY. 
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://www.reasoncreative.com" # the base hostname & protocol for your site
 
@@ -19,3 +19,5 @@ collections:
     permalink: /portfolio/:path/
 # Build settings
 markdown: kramdown
+gems:
+  - jekyll-assets

@@ -212,17 +212,11 @@ a.button:hover, .button:hover, button:hover, input[type="submit"]:hover {
   .home .main-heading {
     font-size: 70px;
     margin-right: 50px;
-    -webkit-flex: 1 1 auto;
-    -ms-flex: 1 1 auto;
     flex: 1 1 auto;
   }
 
   .heading-services-container {
-    display: -webkit-flex;
-    display: -ms-flexbox;
     display: flex;
-    -webkit-align-items: flex-start;
-    -ms-align-items: flex-start;
     align-items: flex-start;
   }
 }
@@ -253,8 +247,6 @@ a.button:hover, .button:hover, button:hover, input[type="submit"]:hover {
     text-align: right;
     padding-top: 20px;
     width: 20vw;
-    -webkit-flex: none;
-    -ms-flex: none;
     flex: none;
   }
 }
@@ -331,9 +323,7 @@ a.button:hover, .button:hover, button:hover, input[type="submit"]:hover {
 }
 
 .portfolio-preview {
-  -webkit-transform: scale(1,  1);
   transform: scale(1,  1);
-  -webkit-transform-origin: top center;
   transform-origin: top center;
   transition: transform 100ms ease-out;
   transition-delay: 30ms;
@@ -344,14 +334,10 @@ a.button:hover, .button:hover, button:hover, input[type="submit"]:hover {
 
 @media (min-width: 1050px) {
   .portfolio-item {
-    display: -webkit-flex;
-    display: -ms-flexbox;
     display: flex;
   }
 
   .portfolio-item.image-right {
-    -webkit-flex-direction: row-reverse;
-    -ms-flex-direction: row-reverse;
     flex-direction: row-reverse;
     text-align: right;
   }
@@ -362,14 +348,10 @@ a.button:hover, .button:hover, button:hover, input[type="submit"]:hover {
 
   .portfolio-content {
     width: 50%;
-    -webkit-flex: none;
-    -ms-flex: none;
     flex: none;
   }
 
   .portfolio-info {
-    -webkit-flex: 1 1 auto;
-    -ms-flex: 1 1 auto;
     flex: 1 1 auto;
   }
 }
@@ -378,21 +360,17 @@ a.button:hover, .button:hover, button:hover, input[type="submit"]:hover {
   margin-top: 100px;
 }
 
-.conta2ct-container {
+.contact-container {
   position: relative;
   max-width: 500px;
 }
 
 @media (min-width: 700px) {
   .footer {
-    display: -webkit-flex;
-    display: -ms-flex;
     display: flex;
   }
 
   .contact-container, .about-me-container {
-    -webkit-flex: 1 1 auto;
-    -ms-flex: 1 1 auto;
     flex: 1 1 auto;
   }
 }
@@ -509,4 +487,10 @@ form li {
 
 .back-link-container {
   margin: 5px 0;
+}
+
+@media(min-width: 600px) {
+  .two-col {
+    column-count: 2;
+  }
 }
