@@ -16,21 +16,26 @@ function debounce(func, wait, immediate) {
 var scrollTimeout = null;
 var scrollTop = 0;
 
-/** [TODO] Find logo and translate within viewport  **/
-// var logo = $('.logo-container').get(0);
-// var onScroll = debounce(function(event) {
-//   scrollTop = document.body.scrollTop;
+var logo = $('.logo-container');
+function makeTranslate3d(ele, x, y, z) {
+  if(ele['selector']) {
+    ele = ele.get(0);
+  }
+  ele.style.transform = 'translate3d(' + x + 'px, ' + y + 'px, ' + z + 'px)';
+}
+function onScroll(container, targetEle) {
+  return debounce(function(event) {
+    scrollTop = container.scrollTop;
 
-//   clearTimeout(scrollTimeout);
-//   $('body').addClass('scrolling');
-//   scrollTimeout = setTimeout(function() {
-//     $('body').removeClass('scrolling');
-//   }, 1000);
+    clearTimeout(scrollTimeout);
+    $('body').addClass('scrolling');
+    scrollTimeout = setTimeout(function() {
+      $('body').removeClass('scrolling');
+    }, 1000);
 
-//   logo.style.transform = 'translate3d(0, -' + Math.floor(scrollTop / 10) + 'px, 0)';
-// }, 10);
-// document.addEventListener('scroll', onScroll);
-
+  makeTranslate3d(targetEle, 0, (0 - Math.floor(scrollTop / 10)), 0);
+  }, 10);
+}
 /**
  * [left ][center][right]
  */
@@ -50,6 +55,9 @@ var viewports = {
   }
 };
 viewports.current = viewports.center;
+
+// Center well scroll listener
+viewports.center.element.addEventListener('scroll', onScroll(viewports.center.element, logo));
 
 $('body').on('click', 'a', function(event) {
   event.preventDefault();
@@ -96,6 +104,6 @@ $('body').on('click', 'a', function(event) {
   return false;
 });
 
-$('body').on('popstate', function(event) {
+window.onpopstate = function(event) {
   console.log('[POPSTATE]', event);
-})
+};

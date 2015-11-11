@@ -36,10 +36,11 @@ body {
 
 @media (min-width: 700px) {
   body {
-  font-size: 1.5vw;
+    font-size: 1.5vw;
+  }
 }
 
-}h1, h2, h3, h4, p, ul, ol, dl {
+h1, h2, h3, h4, p, ul, ol, dl {
   margin: 0 0 1rem;
 }
 
@@ -377,7 +378,7 @@ a.button:hover, .button:hover, button:hover, input[type="submit"]:hover {
   margin-top: 100px;
 }
 
-.contact-container {
+.conta2ct-container {
   position: relative;
   max-width: 500px;
 }
@@ -504,4 +505,8 @@ form li {
     font-weight: 700;
     font-size: 6vw;
   }
+}
+
+.back-link-container {
+  margin: 5px 0;
 }
