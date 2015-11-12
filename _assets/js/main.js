@@ -42,14 +42,17 @@ function onScroll(container, targetEle) {
 var viewportContainer = document.getElementById('vpc');
 var viewports = {
   left: {
+    querySelector: '.viewport.left',
     element: document.querySelector('.viewport.left'),
     style: "translate3d(0vw, 0vh, 0px)"
   },
   center: {
+    querySelector: '.viewport.center',
     element: document.querySelector('.viewport.center'),
     style: "translate3d(-100vw, 0vh, 0px)"
   },
   right: {
+    querySelector: '.viewport.right',
     element: document.querySelector('.viewport.right'),
     style: "translate3d(-200vw, 0vh, 0px)"
   }
@@ -62,22 +65,21 @@ viewports.center.element.addEventListener('scroll', onScroll(viewports.center.el
 $('body').on('click', 'a', function(event) {
   var current = event.target,
     stateObject = {
-      currentUrl: document.location.pathname
+      previousUrl: document.location.pathname,
+      previousContainer: viewports.current.querySelector
       };
   if(current.classList.contains('js-page-transition')) {
     event.preventDefault();
-    var container = '';
+    var container = '',
+      targetContainer = viewports.center;
+
     if(current.classList.contains('js-page-destination-right')) {
-      viewportContainer.style.transform = viewports.right.style;
-      viewports.current = viewports.right;
-      container = '.viewport.right';
+      targetContainer = viewports.right;
     }
 
-    else if(current.classList.contains('js-page-destination-center')) {
-      viewportContainer.style.transform = viewports.center.style;
-      viewports.current = viewports.center;
-      container = '.viewport.center';
-    }
+    viewportContainer.style.transform = targetContainer.style;
+    container = targetContainer.querySelector;
+    viewports.current = targetContainer;
 
     console.log('[AJAX LOAD]', $(viewports.current), current.getAttribute('href'), container);
     console.log('pushState', stateObject, current.getAttribute('data-title'), current.getAttribute('href'));
@@ -106,4 +108,37 @@ $('body').on('click', 'a', function(event) {
 
 window.onpopstate = function(event) {
   console.log('[POPSTATE]', event);
+
+  try {
+    //$(viewports.current).html('<h2>Loading</h2>').load(current.getAttribute('href') + ' ' + container);
+    var container = event.state.previousContainer
+      targetContainer = viewports.center;
+
+    if(container.indexOf('right') > -1) {
+      targetContainer = viewports.right;
+    }
+    
+    else if(container.indexOf('left') > -1) {
+      targetContainer = viewports.left;
+    }
+    
+    viewportContainer.style.transform = targetContainer.style;
+    container = targetContainer.querySelector;
+    viewports.current = targetContainer;
+
+    $.ajax({
+      url: event.state.previousUrl,
+      context: document.querySelector(),
+      success: function(data) {
+        var html = $(data);
+        var rightHtml = html.find(container);
+        this.innerHTML = rightHtml.get(0).innerHTML;
+      }
+    })
+  }
+
+  catch(ex) {
+    console.warn(ex.message);
+    console.trace();
+  }
 };
