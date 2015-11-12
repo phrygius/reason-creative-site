@@ -40,7 +40,7 @@ body {
   }
 }
 
-h1, h2, h3, h4, p, ul, ol, dl {
+h1, h2, h3, h4, p, ul, ol, dl, .vertical-rhythm {
   margin: 0 0 1rem;
 }
 
@@ -68,7 +68,7 @@ a.button, .button, button, input[type="submit"] {
   padding: 10px 20px;
   text-decoration: none;
   text-transform: uppercase;
-  font-size: 0.9rem;
+  font-size: 0.9rem !important;
   letter-spacing: 0.1rem;
   font-weight: 400;
 }
@@ -363,33 +363,44 @@ a.button:hover, .button:hover, button:hover, input[type="submit"]:hover {
 .contact-container {
   position: relative;
   max-width: 500px;
+
+  iframe {
+    transform: translateX(-10px);
+  }
 }
 
 @media (min-width: 700px) {
   .footer {
     display: flex;
+    flex-wrap: nowrap;
+    align-items: flex-start;
   }
 
   .contact-container, .about-me-container {
-    flex: 1 1 auto;
+    flex: none;
+    width: 50%;
+  }
+  .contact-container {
+    margin-right: 25px;
   }
 }
 
-.wufoo {
+form.wufoo {
   font-family: "Avenir Next", "Avenir", "Lato", Helvetica, sans-serif;
-}
-
-.wufoo .info {
-  border-bottom: none;
-  padding: 0;
-}
-
-.wufoo .info h2 {
-  display: none;
-}
-
-.wufoo input[type="submit"] {
-  border-color: #fff;
+  padding-left: 10px;
+  .info {
+    border-bottom: none;
+    padding: 0;
+    h2 {
+      display: none;
+    }
+  }
+  label.desc, legend.desc {
+    font-size: inherit;
+    font-weight: inherit;
+    font-style: inherit;
+    color: inherit;
+  }
 }
 
 input[type="text"], input[type="search"], input[type="email"], textarea {
@@ -398,7 +409,7 @@ input[type="text"], input[type="search"], input[type="email"], textarea {
 }
 
 form span.req {
-  color: #D4FF00 !important;
+  color: #7479C3 !important;
 }
 
 form li {

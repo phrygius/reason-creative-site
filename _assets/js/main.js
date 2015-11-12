@@ -60,12 +60,12 @@ viewports.current = viewports.center;
 viewports.center.element.addEventListener('scroll', onScroll(viewports.center.element, logo));
 
 $('body').on('click', 'a', function(event) {
-  event.preventDefault();
   var current = event.target,
     stateObject = {
       currentUrl: document.location.pathname
       };
   if(current.classList.contains('js-page-transition')) {
+    event.preventDefault();
     var container = '';
     if(current.classList.contains('js-page-destination-right')) {
       viewportContainer.style.transform = viewports.right.style;
@@ -100,8 +100,8 @@ $('body').on('click', 'a', function(event) {
       console.warn(ex.message);
       console.trace();
     }
-  }
-  return false;
+    return false;
+  } // END current.classList.contains('js-page-transition') check
 });
 
 window.onpopstate = function(event) {
