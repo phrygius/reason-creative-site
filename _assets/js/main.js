@@ -16,7 +16,6 @@ function debounce(func, wait, immediate) {
 var scrollTimeout = null;
 var scrollTop = 0;
 
-var logo = $('.logo-container');
 function makeTranslate3d(ele, x, y, z) {
   if(ele['selector']) {
     ele = ele.get(0);
@@ -33,7 +32,7 @@ function onScroll(container, targetEle) {
       $('body').removeClass('scrolling');
     }, 1000);
 
-  makeTranslate3d(targetEle, 0, (0 - Math.floor(scrollTop / 10)), 0);
+    makeTranslate3d(targetEle, 0, (0 - Math.floor(scrollTop / 10)), 0);
   }, 10);
 }
 /**
@@ -60,33 +59,49 @@ var viewports = {
 viewports.current = viewports.center;
 
 // Center well scroll listener
-viewports.center.element.addEventListener('scroll', onScroll(viewports.center.element, logo));
+var centerWellScrollListener = null;
+if(viewports.current === viewports.center) {
+  var logo = viewports.center.element.querySelector('.logo-container');
+  centerWellScrollListener = onScroll(viewports.center.element, logo);
+  viewports.center.element.addEventListener('scroll', centerWellScrollListener);
+}
+var originalPageState = {
+  url: document.location.pathname,
+  container: viewports.current.querySelector
+  };
+var footerForm = $('footer .form-container');
 
 $('body').on('click', 'a', function(event) {
-  var current = event.target,
-    stateObject = {
-      previousUrl: document.location.pathname,
-      previousContainer: viewports.current.querySelector
-      };
+  // The <a> element
+  var current = event.target;
+
   if(current.classList.contains('js-page-transition')) {
     event.preventDefault();
     var container = '',
-      targetContainer = viewports.center;
+      targetContainer = viewports.center,
+      targetViewportContainerClass = 'center';
 
     if(current.classList.contains('js-page-destination-right')) {
       targetContainer = viewports.right;
+      targetViewportContainerClass = 'right'
     }
 
-    viewportContainer.style.transform = targetContainer.style;
+    viewportContainer.classList.remove('center', 'left', 'right');
+    viewportContainer.classList.add(targetViewportContainerClass);
+//    viewportContainer.style.transform = targetContainer.style;
     container = targetContainer.querySelector;
     viewports.current = targetContainer;
 
+    var newStateObject = {
+      url: current.getAttribute('href'),
+      container: targetContainer.querySelector
+      };
+
     console.log('[AJAX LOAD]', $(viewports.current), current.getAttribute('href'), container);
-    console.log('pushState', stateObject, current.getAttribute('data-title'), current.getAttribute('href'));
-    history.pushState(stateObject, current.getAttribute('data-title'), current.getAttribute('href'));
+    console.log('pushState', newStateObject, current.getAttribute('data-title'), current.getAttribute('href'));
+    history.pushState(newStateObject, current.getAttribute('data-title'), current.getAttribute('href'));
 
     try {
-      //$(viewports.current).html('<h2>Loading</h2>').load(current.getAttribute('href') + ' ' + container);
       $.ajax({
         url: current.getAttribute('href'),
         context: viewports.current.element,
@@ -94,6 +109,15 @@ $('body').on('click', 'a', function(event) {
           var html = $(data);
           var rightHtml = html.find(container);
           this.innerHTML = rightHtml.get(0).innerHTML;
+          moveFrame();
+
+          // Center well scroll listener
+          if(viewports.current === viewports.center) {
+            var logo = viewports.center.element.querySelector('.logo-container');
+            viewports.center.element.removeEventListener('scroll', centerWellScrollListener);
+            centerWellScrollListener = onScroll(viewports.center.element, logo);
+            viewports.center.element.addEventListener('scroll', centerWellScrollListener);
+          }
         }
       })
     }
@@ -108,31 +132,45 @@ $('body').on('click', 'a', function(event) {
 
 window.onpopstate = function(event) {
   console.log('[POPSTATE]', event);
+  var state = event.state || originalPageState;
 
   try {
-    //$(viewports.current).html('<h2>Loading</h2>').load(current.getAttribute('href') + ' ' + container);
-    var container = event.state.previousContainer
-      targetContainer = viewports.center;
+    var container = state.container,
+      targetContainer = viewports.center,
+      targetViewportContainerClass = 'center';
 
     if(container.indexOf('right') > -1) {
       targetContainer = viewports.right;
+      targetViewportContainerClass = 'right';
     }
     
     else if(container.indexOf('left') > -1) {
       targetContainer = viewports.left;
+      targetViewportContainerClass = 'left';
     }
     
-    viewportContainer.style.transform = targetContainer.style;
+    viewportContainer.classList.remove('center', 'left', 'right');
+    viewportContainer.classList.add(targetViewportContainerClass);
+//    viewportContainer.style.transform = targetContainer.style;
     container = targetContainer.querySelector;
     viewports.current = targetContainer;
 
     $.ajax({
-      url: event.state.previousUrl,
+      url: event.state.url,
       context: document.querySelector(),
       success: function(data) {
         var html = $(data);
         var rightHtml = html.find(container);
         this.innerHTML = rightHtml.get(0).innerHTML;
+        moveFrame();
+
+        // Center well scroll listener
+        if(viewports.current === viewports.center) {
+          var logo = viewports.center.element.querySelector('.logo-container');
+          viewports.center.element.removeEventListener('scroll', centerWellScrollListener);
+          centerWellScrollListener = onScroll(viewports.center.element, logo);
+          viewports.center.element.addEventListener('scroll', centerWellScrollListener);
+        }
       }
     })
   }
@@ -142,3 +180,7 @@ window.onpopstate = function(event) {
     console.trace();
   }
 };
+
+function moveFrame() {
+  $(viewports.current.element).find('footer .form-container').html(footerForm.remove());
+}
