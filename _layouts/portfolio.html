@@ -9,22 +9,18 @@
         <div class="viewport right active">
           <div class="background-container">
             <div class="back-link-container">
-              <a href="/" class="button js-page-transition js-page-destination-center">Back</a>
+              <a href="/" data-title="Reason Creative" class="button js-page-transition js-page-destination-center">Back</a>
             </div>
-            <!--<div class="logo-container">
-              <div class="logo-text"><img src="/img/logo-text.svg" alt="Reason Creative" /></div>
-              <div class="logo-mark"><img src="/img/logo-mark.svg" alt="Reason Creative" /></div>
-            </div>-->
           </div>
           <div class="main-container">
             {% include nav.html %}
             <div class="content-container">
               <div class="content portfolio-page">
                 {{ content }}
-                {% include footer.html %}
               </div><!-- END .content -->
-            </div>
-          </div>
+              {% include footer.html %}
+            </div><!-- END .content-container -->
+          </div><!-- END .main-container -->
         </div><!-- END .viewport.right -->
       </div><!-- END .viewport-container -->
     </div><!-- END .main-viewport -->

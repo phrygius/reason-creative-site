@@ -1,3 +1,6 @@
+$lightCoolGrey: #f0f1f2;
+$darkBlue: #2D4A50;
+
 * {
   box-sizing: border-box;
 }
@@ -32,6 +35,12 @@ body {
   line-height: 1.5;
   letter-spacing: 0.07em;
   font-weight: 400;
+
+  // WuFoo
+  &#public {
+    background: $lightCoolGrey;
+    color: $darkBlue;
+  }
 }
 
 @media (min-width: 700px) {
@@ -41,7 +50,7 @@ body {
 }
 
 h1, h2, h3, h4, p, ul, ol, dl, .vertical-rhythm {
-  margin: 0 0 1rem;
+  margin: 0 0 1.5rem;
 }
 
 h1, h2, h3, h4 {
@@ -140,11 +149,16 @@ a.button:hover, .button:hover, button:hover, input[type="submit"]:hover {
   position: relative;
   z-index: 1;
   margin: 0;
-  padding: 0 5vw 100px;
+  padding: 0;
   transition: all 250ms ease-out;
   transition-delay: 150ms;
   transform: translate3d(0,  0,  0);
   min-height: 80vh;
+
+  .content {
+    padding-left: 5vw;
+    padding-right: 5vw;
+  }
 }
 
 .content-container:before {
@@ -174,9 +188,11 @@ a.button:hover, .button:hover, button:hover, input[type="submit"]:hover {
 
   .content-container {
     margin: 80vh 0 0;
-    padding-left: 10vw;
-    padding-right: 10vw;
     min-height: 20vh;
+    .content {
+      padding-left: 10vw;
+      padding-right: 10vw;
+    }
   }
 }
 
@@ -357,15 +373,34 @@ a.button:hover, .button:hover, button:hover, input[type="submit"]:hover {
 }
 
 .footer {
-  margin-top: 100px;
+  margin: 40vh 0 0;
+  padding: 10vh 0;
+  background: $lightCoolGrey;
+  color: $darkBlue;
+  &> * {
+    position: relative;
+    z-index: 2;
+  }
+  &:before {
+    content: "";
+    display: block;
+    width: 150%;
+    height: 400px;
+    position: absolute;
+    z-index: 1;
+    background: $lightCoolGrey;
+    transform: rotate(2deg);
+    top: -15vh;
+    left: -25%;
+  }
 }
 
 .contact-container {
   position: relative;
-  max-width: 500px;
 
   iframe {
     transform: translateX(-10px);
+    max-width: 500px;
   }
 }
 
@@ -462,12 +497,6 @@ form li {
     -webkit-filter: blur(0);
   }
 }
-
-
-
-
-
-
 
 .center {
   .background-container {

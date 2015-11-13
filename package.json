@@ -14,7 +14,7 @@
     "build:js": "mkdir _site/assets/js; cp _assets/js/main.js _site/assets/js/main.js", 
     "build:scss": "node-sass _assets/css/style.scss _site/assets/css/style.css",
     "build:jekyll": "jekyll build",
-    "build:css:autoprefixer": "postcss --use autoprefixer --autoprefixer.browsere \"> 5%\" -o _site/assets/css/style.css _site/assets/css/style.css",
+    "build:css:autoprefixer": "postcss --use autoprefixer --autoprefixer.browsers \"> 5%\" -o _site/assets/css/style.css _site/assets/css/style.css",
     "build": "npm run build:jekyll && npm run build:scss && npm run build:css:autoprefixer && npm run build:js",
     "watch:scss": "nodemon -e scss -w _assets/css -x \"npm run build:scss && npm run build:css:autoprefixer\"",
     "watch:js": "nodemon -e js -w _assets/js -x \"npm run build:js\"",

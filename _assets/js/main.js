@@ -108,6 +108,8 @@ $('body').on('click', 'a', function(event) {
         success: function(data) {
           var html = $(data);
           var rightHtml = html.find(container);
+          var title = html.filter('title').text();
+          document.title = title;
           this.innerHTML = rightHtml.get(0).innerHTML;
           moveFrame();
 
@@ -161,6 +163,8 @@ window.onpopstate = function(event) {
       success: function(data) {
         var html = $(data);
         var rightHtml = html.find(container);
+        var title = html.filter('title').text();
+        document.title = title;
         this.innerHTML = rightHtml.get(0).innerHTML;
         moveFrame();
 
