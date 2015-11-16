@@ -267,7 +267,8 @@ a.button:hover, .button:hover, button:hover, input[type="submit"]:hover {
 @media (min-width: 700px) {
   .services-list {
     list-style: none;
-    line-height: 2;
+    line-height: 1.5;
+    font-size: 90%;
     text-align: right;
     padding-top: 20px;
     width: 20vw;
