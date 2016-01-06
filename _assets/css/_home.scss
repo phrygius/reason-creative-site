@@ -108,7 +108,7 @@ a.button:hover, .button:hover, button:hover, input[type="submit"]:hover {
   width: 100%;
   min-height: 250px;
   overflow: hidden;
-  z-index: 0;
+  z-index: 1;
   background-image: url('/img/nebula-diagonal-2.jpg');
   background-repeat: no-repeat;
   background-size: cover;
@@ -426,6 +426,18 @@ a.button:hover, .button:hover, button:hover, input[type="submit"]:hover {
   }
   .contact-container {
     margin-right: 25px;
+  }
+}
+
+/**
+ * Element scroll transitions
+ */
+.js-pub-sub.js-pub-sub-scroll {
+  position: relative;
+  transform: translate3d(0, 0, 0);
+  transition: all 150ms ease-out;
+  &.drop-in.unseen {
+    transform: translate3d(0, 0, 500px);
   }
 }
 

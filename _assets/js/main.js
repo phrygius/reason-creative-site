@@ -40,6 +40,7 @@ function makeScrollTransformForElement(container, targetEle, factor) {
  */
 var viewportContainer = $('#vpc');
 var currentViewport = $('.viewport.active');
+var currentViewportScrollListeners = getViewportScrollListeners();
 var currentViewportClass = 'center';
 if(currentViewport.hasClass('right')) {
   currentViewportClass = 'right';
@@ -66,15 +67,25 @@ centerViewport.on('scroll', logoScrollListener)
 /**
  * Scroll listener for visible/invisible
  */
-$('body').on('scroll', debounce(function(event) {
-  $('.js-pub-sub.js-pub-sub-scroll').each(function(i, ele) {
-    if($(ele).visible(true)) {
-      $(ele).removeClass('unseen').addClass('visible');
-    } else {
-      $(ele).removeClass('visible');
-    }
-  });
-}, 50));
+function getViewportScrollListeners() {
+  return currentViewport.find('.js-pub-sub.js-pub-sub-scroll');
+}
+var visibleScrollCheckLast = 0;
+function visibleScrollCheck(timestamp) {
+  var diff = timestamp - visibleScrollCheckLast;
+  if(diff > 50) {
+    currentViewportScrollListeners.each(function(i, ele) {
+      if($(ele).visible(true)) {
+        $(ele).removeClass('unseen').addClass('visible');
+      } else {
+        $(ele).removeClass('visible');
+      }
+    });
+    visibleScrollCheckLast = timestamp;
+  }
+  requestAnimationFrame(visibleScrollCheck);
+}
+requestAnimationFrame(visibleScrollCheck);
 
 /**
  * Viewport switching
@@ -94,6 +105,7 @@ function swapViews(target) {
   // 
   currentViewport.removeClass('active');
   currentViewport = $('.viewport.' + target);
+  currentViewportScrollListeners = getViewportScrollListeners();
   currentViewport.addClass('active');
   currentViewportClass = target;
 
@@ -112,7 +124,7 @@ function fetchContent(url, targetViewportContainerClass) {
           var rightHtml = html.find('.viewport.' + this.className);
           var title = html.filter('title').text();
           document.title = title;
-          currentViewport.innerHTML = rightHtml.get(0).innerHTML;
+          currentViewport.html(rightHtml.get(0).innerHTML);
           moveFrame();
         }, context)
       });
