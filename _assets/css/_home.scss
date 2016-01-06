@@ -189,7 +189,7 @@ a.button:hover, .button:hover, button:hover, input[type="submit"]:hover {
 
 @media (min-width: 1050px) {
   .background-container {
-    position: fixed;
+    position: absolute;
     min-height: 500px;
     height: 80vh;
   }
@@ -299,7 +299,7 @@ a.button:hover, .button:hover, button:hover, input[type="submit"]:hover {
 
 @media (min-width: 700px) {
   .portfolio-container {
-    margin-top: 150px;
+    margin-top: 80px;
   }
 }
 
@@ -465,62 +465,20 @@ form li {
   font-size: 100%;
 }
 
-@keyframes blur {
-  0% {
-    -webkit-filter: blur(0);
-  }
-
-  13% {
-    -webkit-filter: blur(0);
-  }
-
-  15% {
-    -webkit-filter: blur(5px);
-  }
-
-  20% {
-    -webkit-filter: blur(0);
-  }
-
-  40% {
-    -webkit-filter: blur(15px);
-  }
-
-  50% {
-    -webkit-filter: blur(15px);
-  }
-
-  55% {
-    -webkit-filter: blur(10px);
-  }
-
-  75% {
-    -webkit-filter: blur(15px);
-  }
-
-  90% {
-    -webkit-filter: blur(10px);
-  }
-
-  95% {
-    -webkit-filter: blur(0);
-  }
+.viewport.center {
+  // .background-container {
+  //   left:  100vw;
+  //   width:  100vw;
+  // }
 }
 
-.center {
-  .background-container {
-    left:  100vw;
-    width:  100vw;
-  }
-}
-
-.right {
-  .background-container {
-    left:  200vw;
-    width:  100vw;
-    height: 20vh;
-    z-index: 1;
-  }
+.viewport.right {
+  // .background-container {
+  //   left:  200vw;
+  //   width:  100vw;
+  //   height: 20vh;
+  //   z-index: 1;
+  // }
   .content-container {
     margin: 20vh 0 0;
     min-height: 80vh;
@@ -531,6 +489,12 @@ form li {
   h1 {
     font-weight: 700;
     font-size: 6vw;
+  }
+}
+
+@media(min-width: 700px) {
+  .multi-col {
+    column-count: 2;
   }
 }
 
