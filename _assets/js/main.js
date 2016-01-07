@@ -100,7 +100,7 @@ function swapViews(target) {
   setTimeout(function() {
     $('body').removeClass('animate');
     viewportContainer.removeClass(animationClass);
-  }, 2000);
+  }, 1000);
 
   // 
   currentViewport.removeClass('active');
