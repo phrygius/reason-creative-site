@@ -92,14 +92,12 @@ requestAnimationFrame(visibleScrollCheck);
  */
 function swapViews(target) {
   // Animate
-  $('body').addClass('animate');
   var animationClass = currentViewportClass + '-to-' + target;
-  viewportContainer.addClass(animationClass);
+  $('body').addClass(animationClass);
   viewportContainer.removeClass('center left right');
   viewportContainer.addClass(target);
   setTimeout(function() {
-    $('body').removeClass('animate');
-    viewportContainer.removeClass(animationClass);
+    $('body').removeClass(animationClass);
   }, 1000);
 
   // 
