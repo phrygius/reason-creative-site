@@ -39,15 +39,8 @@ a, a:hover {
 
 body.right-to-center {
     .viewport-container {
-//        animation: right-to-center 500ms 1 cubic-bezier(.16,-0.16,.86,.56);
         animation-name: right-to-center;
-        animation-duration: 1s;
-        animation-iteration-count: 1;
-        animation-timing-function: ease-in-out;
-    }
-    .main-viewport {
-        animation-name: zoom-out;
-        animation-duration: 1s;
+        animation-duration: 500ms;
         animation-iteration-count: 1;
         animation-timing-function: ease-in-out;
     }
@@ -55,16 +48,33 @@ body.right-to-center {
 body.center-to-right {
     .viewport-container {
         animation-name: center-to-right;
-        animation-duration: 1s;
+        animation-duration: 500ms;
         animation-iteration-count: 1;
         animation-timing-function: ease-in-out;
-//        animation: center-to-right 500ms 1 cubic-bezier(.16,-0.16,.86,.56);
     }
-    .main-viewport {
-        animation-name: zoom-out;
-        animation-duration: 1s;
-        animation-iteration-count: 1;
-        animation-timing-function: ease-in-out;
+}
+@media(min-width: 700px) {
+    body.right-to-center {
+        .viewport-container {
+            animation-duration: 1s;
+        }
+        .main-viewport {
+            animation-name: zoom-out;
+            animation-duration: 1s;
+            animation-iteration-count: 1;
+            animation-timing-function: ease-in-out;
+        }
+    }
+    body.center-to-right {
+        .viewport-container {
+            animation-duration: 1s;
+        }
+        .main-viewport {
+            animation-name: zoom-out;
+            animation-duration: 1s;
+            animation-iteration-count: 1;
+            animation-timing-function: ease-in-out;
+        }
     }
 }
 
