@@ -463,6 +463,20 @@ input[type="text"], input[type="search"], input[type="email"], textarea {
   padding: 3px !important;
 }
 
+.form-container {
+  .form-input-container {
+    margin: 0 0 0.25em;
+  }
+  label, input, textarea {
+    display: block;
+    width: 80%;
+    font-size: 100%;
+  }
+  textarea {
+    height: 10em;
+  }
+}
+
 form span.req {
   color: #7479C3 !important;
 }

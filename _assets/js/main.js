@@ -160,6 +160,36 @@ $('body').on('click', 'a', function(event) {
   }
 });
 
+/**
+ * Ajax form submission
+ */
+$('#contact-form').on('submit', function(event) {
+  event.preventDefault();
+  $('#contact-button').attr('disabled', 'disabled');
+  $.ajax({
+    url: '/api/contact.php',
+    type: 'post',
+    data: {
+      name: $('input[name="name"]').val(),
+      email: $('input[name="email"]').val(),
+      message: $('textarea[name="message"]').val()
+    },
+    dataType: 'json',
+    success: function(data) {
+      if(data && data.status == 'success') {
+        $('#contact-form').css({ height: $('#contact-form').height() });
+        $('#contact-form').html('<p>Thank you for your message!</p>');
+      } else {
+        alert('failure');
+      }
+    },
+    complete: function() {
+      $('#contact-button').removeAttr('disabled');
+    }
+  });
+  return false;
+});
+
 window.onpopstate = function(event) {
   console.log('[POPSTATE]', event);
   var state = event.state || originalPageState;
