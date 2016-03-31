@@ -123,7 +123,6 @@ function fetchContent(url, targetViewportContainerClass) {
           var title = html.filter('title').text();
           document.title = title;
           currentViewport.html(rightHtml.get(0).innerHTML);
-          moveFrame();
         }, context)
       });
     }
@@ -197,10 +196,6 @@ window.onpopstate = function(event) {
   swapViews(targetViewportContainerClass);
   fetchContent(event.state.url, targetViewportContainerClass);
 };
-
-function moveFrame() {
-  currentViewport.find('footer .form-container').html(footerForm.remove());
-}
 
 (function($) {
 
